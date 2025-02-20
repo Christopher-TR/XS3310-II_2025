@@ -17,6 +17,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Este curso utiliza la teoría de la probabilidad en espacios discretos y continuos, así como el cálculo diferencial e integral, para comprender los fundamentos matemáticos de la inferencia estadística clásica: estimación de parámetros y contraste de hipótesis, y desarrollar las herramientas de estadística contemporánea para sus aplicaciones en diversas áreas. 
 
+
+<a href="Programa-XS3310.pdf">Programa del curso</a>
+
+<a href="https://docs.google.com/spreadsheets/d/1T9SkgJyYtw0ESV2LRFzKDK4R_05WdWr4HFyjJw1nj7I/edit?usp=sharing">Cronograma y ejercicios</a>
+
+
+
 ## Presentaciones
 
 | Tema                        |  Clases                               |
