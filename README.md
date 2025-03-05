@@ -1,10 +1,8 @@
-# Teoría Estadística
-
 **Profesores:**
 
 -   **Grupo 1:** Shu Wei Chou Chen (<shuwei.chou@ucr.ac.cr>)
--   **Grupo 2:** Luis Alberto Juárez Potoy
-    (<luis.juarezpotoy@ucr.ac.cr>)
+-   **Grupo 2:** Christopher Torres Rojas
+    (<christopher.torres@ucr.ac.cr>)
 
 ## DESCRIPCION:
 
@@ -23,24 +21,24 @@ y ejercicios</a>
 
 ## Presentaciones
 
-| Tema                         | Clases                          |
-|------------------------------|---------------------------------|
-| 1\. Introducción             | [Clase01](XS3310-I25_01.html)   |
-|                              | [Clase02](XS3310-I25_02.html)   |
-|                              | [Clase03](XS3310-I25_03.html)   |
-| 2\. Estimación Puntual       | [Clase04](XS3310-I25_04.html)   |
-|                              | [Clase04b](XS3310-I25_04b.html) |
-|                              | [Clase05](XS3310-I25_05.html)   |
-|                              | [Clase05b](XS3310-I25_05b.html) |
-|                              | [Clase06](XS3310-I25_06.html)   |
-|                              | [Clase07](XS3310-I25_07.html)   |
-|                              | [Clase08](XS3310-I25_08.html)   |
-| 3\. Estimación por intervalo | [Clase09](XS3310-I25_09.html)   |
-|                              | [Clase10](XS3310-I25_10.html)   |
-|                              | [Clase11](XS3310-I25_11.html)   |
-| 4\. Contraste de hipótesis   | [Clase12](XS3310-I25_12.html)   |
-|                              | [Clase13](XS3310-I25_13.html)   |
-|                              | [Clase14](XS3310-I25_14.html)   |
-|                              | [Clase15](XS3310-I25_15.html)   |
-| 5\. Estad. no paramétrica    | [Clase16](XS3310-I25_16.html)   |
-|                              | [Clase17](XS3310-I25_17.html)   |
+| Tema | Clases | Laboratorio y materiales extras |
+|---------------------|----------------------------|-----------------------|
+| 1\. Introducción | [Clase01](XS3310-I25_01.html) |  |
+|  | [Clase02](XS3310-I25_02.html) |  |
+|  | [Clase03](XS3310-I25_03.html) | [Lab Tema 1](./lab01.html) |
+| 2\. Estimación Puntual | [Clase04](XS3310-I25_04.html) |  |
+|  | [Clase04b](XS3310-I25_04b.html) |  |
+|  | [Clase05](XS3310-I25_05.html) |  |
+|  | [Clase05b](XS3310-I25_05b.html) |  |
+|  | [Clase06](XS3310-I25_06.html) |  |
+|  | [Clase07](XS3310-I25_07.html) |  |
+|  | [Clase08](XS3310-I25_08.html) | [Lab Tema 2](./lab02.html) |
+| 3\. Estimación por intervalo | [Clase09](XS3310-I25_09.html) |  |
+|  | [Clase10](XS3310-I25_10.html) |  |
+|  | [Clase11](XS3310-I25_11.html) | [Lab Tema 3](./lab03.html) |
+| 4\. Contraste de hipótesis | [Clase12](XS3310-I25_12.html) |  |
+|  | [Clase13](XS3310-I25_13.html) |  |
+|  | [Clase14](XS3310-I25_14.html) | [Lab Tema 4a](lab04a.html) |
+|  | [Clase15](XS3310-I25_15.html) | [Lab Tema 4b](lab04b.html) |
+| 5\. Estad. no paramétrica | [Clase16](XS3310-I25_16.html) | [Lab Tema 5a](./lab05a.html) |
+|  | [Clase17](XS3310-I25_17.html) |  |
