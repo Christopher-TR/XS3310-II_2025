@@ -3,3 +3,5 @@
 *.qmd
 *.Rmd
 README.Rmd
+*.Rmd
+README.Rmd

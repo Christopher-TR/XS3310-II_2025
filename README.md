@@ -21,7 +21,7 @@ y ejercicios</a>
 
 ## Presentaciones
 
-| Tema | Clases | Laboratorio y materiales extras |
+| Tema | Clases | Laboratorio |
 |---------------------|----------------------------|-----------------------|
 | 1\. Introducción | [Clase01](XS3310-I25_01.html) |  |
 |  | [Clase02](XS3310-I25_02.html) |  |
