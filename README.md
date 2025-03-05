@@ -1,6 +1,10 @@
 # Teoría Estadística
 
-**Profesor:** Shu Wei Chou Chen (<shuwei.chou@ucr.ac.cr>)
+**Profesores:**
+
+-   **Grupo 1:** Shu Wei Chou Chen (<shuwei.chou@ucr.ac.cr>)
+-   **Grupo 2:** Luis Alberto Juárez Potoy
+    (<luis.juarezpotoy@ucr.ac.cr>)
 
 ## DESCRIPCION:
 
@@ -11,7 +15,8 @@ estimación de parámetros y contraste de hipótesis, y desarrollar las
 herramientas de estadística contemporánea para sus aplicaciones en
 diversas áreas.
 
-<a href="Programa-XS3310.pdf">Programa del curso</a>
+[Carta al
+estudiante](https://shuwei325.github.io/XS0127-I25/Programa-XS3310.pdf)
 
 <a href="https://docs.google.com/spreadsheets/d/1T9SkgJyYtw0ESV2LRFzKDK4R_05WdWr4HFyjJw1nj7I/edit?usp=sharing">Cronograma
 y ejercicios</a>
