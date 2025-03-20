@@ -362,22 +362,18 @@
 <section id="estimador-insesgado" class="slide level2">
 <h2>Estimador Insesgado</h2>
 <p><strong>Definición 2.1:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que la distribución de probabilidad de <span class="math inline">\(X_j\)</span>, <span class="math inline">\(\forall j\)</span>, depende de un parámetro <span class="math inline">\(\theta\)</span>; sea <span class="math inline">\(\hat{\theta}\)</span> un estimador de <span class="math inline">\(\theta\)</span>. Se dice que <span class="math inline">\(\hat{\theta}\)</span> es un estimador <em>insesgado</em> de <span class="math inline">\(\theta\)</span> si cumple que <span class="math inline">\(E(\hat{ \theta })=\theta\)</span>. En el caso contrario se dice que es un estimador sesgado.</p>
-<p><strong>Ejemplo:</strong></p>
-<p>Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria sobre una población con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2\)</span>, pruebe que <span class="math inline">\(\overline{X}\)</span> y <span class="math inline">\(S^2\)</span> son estimadores insesgados para estimar <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma^2\)</span> respectivamente.</p>
-<p><strong>Solución:</strong></p>
-<p>En la diapositva 9 de la clase02, comprobamos que</p>
+<p><strong>Ejemplo:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria sobre una población con media <span class="math inline">\(\mu\)</span> y varianza <span class="math inline">\(\sigma^2\)</span>, pruebe que <span class="math inline">\(\overline{X}\)</span> y <span class="math inline">\(S^2\)</span> son estimadores insesgados para estimar <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma^2\)</span> respectivamente.</p>
+<p><strong>Solución:</strong> En la diapositva 9 de la clase02, comprobamos que</p>
 <ul>
-<li><p><span class="math inline">\(E\left(\overline{X}\right)=\mu\)</span>, y</p></li>
-<li><p><span class="math inline">\(E\left(S^2\right)=\sigma^2\)</span>.</p></li>
+<li><span class="math inline">\(E\left(\overline{X}\right)=\mu\)</span>, y</li>
+<li><span class="math inline">\(E\left(S^2\right)=\sigma^2\)</span>.</li>
 </ul>
 <p>Por lo que podemos concluir que <span class="math inline">\(\overline{X}\)</span> es insesgado para estimar <span class="math inline">\(\mu\)</span>, y <span class="math inline">\(S^2\)</span> es insesgado para estimar <span class="math inline">\(\sigma^2\)</span>. Esto para cualquier tipo de población.</p>
 </section>
 <section id="estimador-insesgado-1" class="slide level2">
 <h2>Estimador Insesgado</h2>
-<p><strong>Ejemplo:</strong></p>
-<p>Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim Unif\left(0,\theta\right)\)</span>, con <span class="math inline">\(\theta\)</span> desconocido. Un estimador de <span class="math inline">\(\theta\)</span> es <span class="math inline">\(\hat{\theta} = X_{\left(n\right)} = \max\left\{ X_{1}, X_{2}, ... , X_{n} \right\}\)</span>. Determine si <span class="math inline">\(X_{\left(n\right)}\)</span> es insesgado.</p>
-<p><strong>Solución:</strong></p>
-<p>Primero, encontramos la distribución de <span class="math inline">\(\hat{\theta} = X_{\left(n\right)} = \max\left\{ X_{1}, X_{2}, ... , X_{n} \right\}\)</span>:</p>
+<p><strong>Ejemplo:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim Unif\left(0,\theta\right)\)</span>, con <span class="math inline">\(\theta\)</span> desconocido. Un estimador de <span class="math inline">\(\theta\)</span> es <span class="math inline">\(\hat{\theta} = X_{\left(n\right)} = \max\left\{ X_{1}, X_{2}, ... , X_{n} \right\}\)</span>. Determine si <span class="math inline">\(X_{\left(n\right)}\)</span> es insesgado.</p>
+<p><strong>Solución:</strong> Primero, encontramos la distribución de <span class="math inline">\(\hat{\theta} = X_{\left(n\right)} = \max\left\{ X_{1}, X_{2}, ... , X_{n} \right\}\)</span>:</p>
 <p><span class="math display">\[\begin{align*}
 F_{X_{\left(n\right)}}\left(x\right)  &amp;= P(X_{(n)} \leq x) \\
 &amp;= P(\max(X_1,X_2,⋯,X_n)\leq x) \\
@@ -623,6 +619,9 @@ Var(\hat{\theta}_{2}) &amp;= Var\left(\frac{5n+1}{5n}X_{(n)}\right) = \frac{\lef
 <p><span class="math inline">\(\Rightarrow \ln(f_{X}(x)) = \ln\left(\frac{1}{\sqrt{2\pi}\sigma}\right) - \frac{(x-\mu)^2}{2\sigma^2} \Rightarrow \frac{\partial\ln(f_{X}(x))}{\partial\mu} = \frac{x-\mu}{\sigma^{2}}\)</span></p>
 <p><span class="math inline">\(\Rightarrow \frac{\partial^{2}\ln(f_{X}(x))}{\partial\mu^{2}} = \frac{-1}{\sigma^2} \Rightarrow -\frac{\partial^{2}\ln(f_{X}(x))}{\partial\mu^{2}} = \frac{1}{\sigma^2}\)</span></p>
 <p><span class="math inline">\(\Rightarrow I^{-1}(\mu) =  \left[nE\left(-\frac{\partial^{2}\ln(f_{X}(x))}{\partial \mu^{2}}\right)\right]^{-1} = \left[ \frac{n}{\sigma^2}\right]^{-1}  = \frac{\sigma^2}{n}\)</span></p>
+</section>
+<section class="slide level2">
+
 <p>De antemano ya sabiamos que <span class="math inline">\(Var(\overline{X}) = \frac{\sigma^2}{n}\)</span> que como vemos es igual a la información de Fisher para <span class="math inline">\(\mu\)</span>, por lo que podemos concluir que <span class="math inline">\(\overline{X}\)</span> es un estimador insesgado de variancia mínima para <span class="math inline">\(\mu\)</span>.</p>
 </section>
 <section id="ejercicios" class="slide level2">
