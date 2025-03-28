@@ -27,9 +27,7 @@ y ejercicios</a>
 |  | [Clase02](XS3310-I25_02.html) |  |
 |  | [Clase03](XS3310-I25_03.html) | [Lab Tema 1](./lab01.html) |
 | 2\. Estimación Puntual | [Clase04](XS3310-I25_04.html) |  |
-|  | [Clase04b](XS3310-I25_04b.html) |  |
 |  | [Clase05](XS3310-I25_05.html) |  |
-|  | [Clase05b](XS3310-I25_05b.html) |  |
 |  | [Clase06](XS3310-I25_06.html) |  |
 |  | [Clase07](XS3310-I25_07.html) |  |
 |  | [Clase08](XS3310-I25_08.html) | [Lab Tema 2](./lab02.html) |
