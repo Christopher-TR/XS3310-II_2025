@@ -498,8 +498,8 @@ code {
 <p><span class="math display">\[f(y)= \begin{cases}\frac{1}{\beta} e^{-y/\beta}, &amp; 0 &lt; y &lt; \infty, \\ 0, &amp; y \leq 0, \end{cases}\]</span></p>
 <p><strong>Definición:</strong> Un <em>modelo estadístico</em> consiste en una identificación de variables aleatorias de interés, la especificación de una distribución conjunta, o una familia de posibles distribuciones conjuntas para unas variables aleatorias observables, la identificación de uno o varios parámetros de dichas distribuciones son desconocidas.</p>
 </section>
-<section id="modelos-estadísticos-y-familias-de-modelos-1" class="slide level2">
-<h2>Modelos estadísticos y familias de modelos</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplos:</strong> Para el caso de componentes eléctricos, se tienen las variables aleatorias <span class="math inline">\(Y_1,...,Y_n\)</span> cuya <strong>distribución conjunta</strong> es:</p>
 <p><span class="math display">\[f(y_1,...,y_n|\beta)= \prod_{i=1}^n f(y_i|\beta),\]</span></p>
 <p>en donde <span class="math inline">\(f(y_i)\)</span> es la densidad de la distribución exponencial con parámetro <span class="math inline">\(\beta&gt;0\)</span>, <em>i.e.</em></p>
@@ -605,8 +605,8 @@ code {
 
 </div>
 <img data-src="XS3310-I25_16_files/figure-revealjs/unnamed-chunk-5-1.png" width="288" class="r-stretch"></section>
-<section id="distribución-empírica-1" class="slide level2">
-<h2>Distribución empírica</h2>
+<section class="slide level2">
+
 <ul>
 <li><p><span class="math inline">\(\hat{P}\)</span> es la distribución empírica de la muestra <span class="math inline">\(X_1,...,X_n\)</span>.</p></li>
 <li><p><span class="math inline">\(\hat{P}\)</span> puede pensarse como una distribución que pone masa <span class="math inline">\(1/n\)</span> en cada observación <span class="math inline">\(X_i\)</span> (para valores que ocurren más de una vez la masa será un múltiplo de <span class="math inline">\(1/n\)</span>). Entonces, <span class="math inline">\(\hat{P}\)</span> es una distribución de probabilidad discreta con un espacio efectivo de muestreo <span class="math inline">\({X_1, \dots, X_n}\)</span>.</p></li>
@@ -654,8 +654,8 @@ code {
 <h2>El Principio de Bootstrap</h2>
 
 <img data-src="figs/BOOT.png" class="r-stretch"></section>
-<section id="el-principio-de-bootstrap-2" class="slide level2">
-<h2>El Principio de Bootstrap</h2>
+<section class="slide level2">
+
 <p><strong>Definición 5.1:</strong> Una muestra aleatoria de tamaño <span class="math inline">\(n\)</span>, <span class="math inline">\(X_1^*,...,X_n^*\)</span> extraída de la distribución empírica <span class="math inline">\(\hat{P}\)</span>, es denominada como una <strong>muestra de bootstrap</strong>.</p>
 <p><strong>Observación</strong>:</p>
 <ul>
@@ -669,8 +669,8 @@ code {
 </ol></li>
 </ul>
 </section>
-<section id="el-principio-de-bootstrap-3" class="slide level2">
-<h2>El Principio de Bootstrap</h2>
+<section class="slide level2">
+
 <p>El procedimiento consiste en:</p>
 <ol type="1">
 <li>Escoja B muestras bootstrap independientes <span class="math inline">\(X^{*(1)}, \dots, X^{*(B)}\)</span> de <span class="math inline">\(\hat{P}\)</span>: <span class="math inline">\(X_1^{*(b)}, \dots, X^{*(b)}_n \overset{iid}{\sim} \hat{P}\)</span>, para <span class="math inline">\(b = 1, \dots, B\)</span>.</li>
