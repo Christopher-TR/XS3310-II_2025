@@ -435,13 +435,13 @@ code {
 <p>Visualmente:</p>
 <p><a href="https://seeing-theory.brown.edu/frequentist-inference/es.html" class="uri">https://seeing-theory.brown.edu/frequentist-inference/es.html</a></p>
 </section>
-<section id="estimación-por-intervalo-1" class="slide level2">
-<h2>Estimación por Intervalo</h2>
+<section class="slide level2">
+
 <p><strong>Ilustración de 30 muestras independientes</strong></p>
 
 <img data-src="XS3310-I25_09_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="estimación-por-intervalo-2" class="slide level2">
-<h2>Estimación por Intervalo</h2>
+<section class="slide level2">
+
 <p>Existen dos tipos de estimaciones por intervalos:</p>
 <ol type="1">
 <li>Intervalos bilaterales</li>
@@ -471,8 +471,8 @@ code {
 <li><p>La distribución de probabilidad de U debe ser conocida y no depender de <span class="math inline">\(\theta\)</span>.</p></li>
 </ul>
 </section>
-<section id="técnica-del-pivote-1" class="slide level2">
-<h2>Técnica del pivote</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplo:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim N(\mu, \sigma^2)\)</span>, donde <span class="math inline">\(\mu\)</span> es deconocido y <span class="math inline">\(\sigma^2\)</span> es conocido. Obtenga una variable aleatoria que funcione como un pivote.</p>
 <p><strong>Solución:</strong> Debemos encontrar una variable aleatoria que esté definida en términos de la muestra y de <span class="math inline">\(\mu\)</span>.</p>
 <ul>
@@ -488,16 +488,16 @@ code {
 <p><strong>NOTA:</strong> <span class="math inline">\(U\)</span> no es la única opción de pivote. Por ejemplo, <span class="math inline">\(U_1=\overline{X} - \mu\)</span> es otra variable aleatoria que también cumple las condiciones para ser un pivote. Existe una infinidad de variables aleatorias que cumplen esta condición, pero como veremos más adelante algunas son más útiles que otras.</p>
 <p><strong>Ejercicio:</strong> Proponga otra variable pivote (diferente a <span class="math inline">\(U\)</span> y a <span class="math inline">\(U_1\)</span>).</p>
 </section>
-<section id="técnica-del-pivote-2" class="slide level2">
-<h2>Técnica del pivote</h2>
+<section class="slide level2">
+
 <p>Una vez encontrada la variable pivote, el siguiente paso es encontrar un intervalo de confianza por medio de la técnica del pivote. Hay dos caminos:</p>
 <ul>
 <li><p><strong>Caso bilaterial:</strong> se requiere encontrar valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> tales que <span class="math inline">\(P(a \leq U \leq b) = 1-\alpha\)</span> y por lo tanto también se cumple que <span class="math inline">\(P(U &lt; a) + P(U &gt; b) = \alpha\)</span>. Sin embargo, estas condiciones generan un número infinito de posibilidades para <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> por lo que se tiene que limitar de alguna manera. Para ello, se acostumbra utilizar la condición de cada una de las probabilidades de las “colas” sean iguales, es decir <span class="math inline">\(P(U &lt; a) = P(U &gt; b) = \dfrac{\alpha}{2}\)</span>.</p></li>
 <li><p><strong>Caso unilaterial:</strong> podemos tener un límite inferior o superior. Dependiendo del que nos interese y de la forma del pivote debemos encontrar un valor <span class="math inline">\(a\)</span> o <span class="math inline">\(b\)</span> que cumpla <span class="math inline">\(P(U \geq a) = 1-\alpha\)</span> o <span class="math inline">\(P(U \leq b) = 1 -\alpha\)</span>. Finalmente, como <span class="math inline">\(U\)</span> está en términos de la muestra aleatoria y del parámetro <span class="math inline">\(\theta\)</span> entonces despejamos <span class="math inline">\(\theta\)</span> dentro de la probabilidad y con esto obtenemos los límites inferiores y superiores.</p></li>
 </ul>
 </section>
-<section id="técnica-del-pivote-3" class="slide level2">
-<h2>Técnica del pivote</h2>
+<section class="slide level2">
+
 <p><strong>Nota:</strong></p>
 <ul>
 <li><p><strong>Para el caso bilateral:</strong> <span class="math inline">\(\left[ P(a \leq U \leq b) = 1-\alpha\right]\)</span>, <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> representan el percentil <span class="math inline">\(\alpha/2\)</span> y <span class="math inline">\(1-\alpha/2\)</span>, respectivamente, de la distribución de <span class="math inline">\(U\)</span>.</p></li>
@@ -588,10 +588,10 @@ P(a \leq U \leq b) &amp;= P\left( -\ln(0.95) \leq \dfrac{Y}{\beta} \leq -\ln(0.0
 <p><em>Primera opción:</em></p>
 <p>Recordemos que la función generadora de momentos de una Gamma <span class="math inline">\((\alpha,\beta)\)</span> es <span class="math inline">\((1-\beta t)^{-\alpha}\)</span>. Por lo tanto, si <span class="math inline">\(U = \dfrac{T}{\beta}\)</span> entonces,</p>
 <p><span class="math display">\[m_{U}(t) = m_{T}\left(\dfrac{t}{\beta}\right) = \left(1-t\right)^{-20}\]</span></p>
-<p>Esto quiere decir que <span class="math inline">\(U \sim Gamma(20,1)\)</span> y por lo tanto se puede emplear como un pivote pues cumple las dos condiciones.</p>
 </section>
 <section class="slide level2">
 
+<p>Esto quiere decir que <span class="math inline">\(U \sim Gamma(20,1)\)</span> y por lo tanto se puede emplear como un pivote pues cumple las dos condiciones.</p>
 <p>Ahora procedemos a encontrar los valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> tales que <span class="math inline">\(P(U &lt; a) = P(U &gt; b) = \dfrac{\alpha}{2}\)</span>. Como la Gamma no tiene una función de distribución en forma cerrada debemos proceder a integrar la función de densidad:</p>
 <p><span class="math display">\[P(U &lt; a) = \int_{0}^{a} \dfrac{u^{19}e^{-u}}{\Gamma(20)} du = \dfrac{\alpha}{2}\]</span></p>
 <p>Esta integral es posible de calular a mano, pero su desarrollo necesita de 19 veces de “por partes” que hacen su cálculo extremadamente largo y tedioso.</p>
@@ -620,7 +620,7 @@ P(a \leq U \leq b) &amp;= P\left( -\ln(0.95) \leq \dfrac{Y}{\beta} \leq -\ln(0.0
 <section class="slide level2">
 
 
-<img data-src="XS3310-I25_09_files/figure-revealjs/unnamed-chunk-9-1.png" width="672" class="r-stretch"><p>Cuantiles de una <span class="math inline">\(\chi^2\)</span>-cuadrado con 40gl.</p>
+<img data-src="XS3310-I25_09_files/figure-revealjs/unnamed-chunk-9-1.png" width="672" class="r-stretch"><p>Cuantiles de una <span class="math inline">\(\chi^2\)</span> con 40gl.</p>
 </section>
 <section class="slide level2">
 
@@ -645,6 +645,9 @@ P(a \leq U \leq b) &amp;= P\left( -\ln(0.95) \leq \dfrac{Y}{\beta} \leq -\ln(0.0
 <p><span class="math display">\[a=\chi^{2}_{\frac{\alpha}{2}, 40}=\chi^{2}_{\frac{0.05}{2}, 40}=24.43\]</span></p>
 <p><span class="math display">\[b=\chi^{2}_{\frac{1-\alpha}{2}, 40}=\chi^{2}_{1-\frac{0.05}{2}, 40}
 =59.34\]</span></p>
+</section>
+<section class="slide level2">
+
 <ul>
 <li>Algunos libros, tablas estadísticas o softwares utilizan la notación de las probabilidades acumuladas de la cola derecha. Por ejemplo, utiliza <span class="math inline">\(\chi^{2}_{p, \nu}\)</span> como el cuantil <span class="math inline">\(1-p\)</span> de una distribución <span class="math inline">\(\chi^{2}\)</span> con <span class="math inline">\(\nu\)</span> grados de libertad, es decir, <span class="math display">\[P\left(\chi^{2}_{\nu}&gt; \chi^{2}_{p, \nu} \right)=p.\]</span></li>
 </ul>
