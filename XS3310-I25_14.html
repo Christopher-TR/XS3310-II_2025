@@ -376,21 +376,21 @@ code {
 <li><p>Es imposible encontrar un contraste que minimice ambas probabilidades de error por lo que nos enfocamos en minimizar una combinación lineal de estas.</p></li>
 </ul>
 </section>
-<section id="contrastes-más-potentes-1" class="slide level2">
-<h2>Contrastes más potentes</h2>
+<section class="slide level2">
+
 <ul>
 <li><p>Una manera de hacer esto es fijar el tamaño del contraste y encontrar el contraste que tenga la <em>mayor potencia</em>.</p></li>
 <li><p>Para demostrar el procedimiento, vamos a enfocarnos en un tipo de contraste de hipótesis que contrasta una hipótesis simple contra otra hipótesis simple. Una hipótesis simple y una hipótesis compuesta se definen de la siguiente manera:</p></li>
 </ul>
 <p><strong>Definición 4.6:</strong> <em>Hipótesis simple e hipótesis compuesta.</em> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria de una distribución con parámetro <span class="math inline">\(\theta\)</span>. Se dice que una hipótesis es <strong>simple</strong> si <em>especifica de manera única</em> la distribución de la población. Cualquier hipótesis que no sea simple se denomina <strong>hipótesis compuesta</strong>.</p>
 </section>
-<section id="contrastes-más-potentes-2" class="slide level2">
-<h2>Contrastes más potentes</h2>
+<section class="slide level2">
+
 <p>Supongamos que tenemos una muestra aleatoria donde <span class="math inline">\(X_j \sim N(\mu,1)\)</span> y tenemos las hipótesis <span class="math inline">\(H_{0}: \mu = 0\)</span> y <span class="math inline">\(H_{1}: \mu \neq 0\)</span>. En este caso la hipótesis nula nos dice que los datos pertenecen a una población <span class="math inline">\(N(0,1)\)</span> mientras que la hipótesis alterna no especifica la distribución de manera única, por lo que <span class="math inline">\(H_0\)</span> es una <em>hipótesis simple</em> mientras que <span class="math inline">\(H_1\)</span> es una <em>hipótesis compuesta</em>.</p>
 <p>Supongamos ahora que <span class="math inline">\(X_j \sim N(\mu,\sigma^2)\)</span> donde <span class="math inline">\(\sigma^{2} &gt; 0\)</span> y es desconocido. En este caso la hipótesis nula <span class="math inline">\(H_{0}: \mu = 0\)</span> es una <em>hipótesis compuesta</em> ya que no está especificando la distribución de la población de una única manera (depende de <span class="math inline">\(\sigma^{2}\)</span>, el cual puede ser cualquier valor positivo).</p>
 </section>
-<section id="contrastes-más-potentes-3" class="slide level2">
-<h2>Contrastes más potentes</h2>
+<section class="slide level2">
+
 <p>Volviendo al objetivo de encontrar un buen contraste supongamos que queremos contrastar dos hipótesis simples y que fijamos el tamaño del contraste en un valor <span class="math inline">\(\alpha_0\)</span> dado. De todos los posibles contrastes que existan con el mismo tamaño <span class="math inline">\(\alpha_0\)</span>, el <strong>contraste más potente</strong> va a ser aquel que tenga la mayor potencia en <span class="math inline">\(\Omega_{1}\)</span>. Este valor <span class="math inline">\(\alpha_0\)</span> fijo usualmente se conoce como el <strong>nivel de significancia</strong>.</p>
 <p><strong>Definición 4.7:</strong> <em>Contraste más potente</em>. Suponga que se desean contrastar las hipótesis simples <span class="math inline">\(H_{0}: \theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta = \theta_1\)</span> basados en una muestra aleatoria de una población con distribución que depende de <span class="math inline">\(\theta\)</span>. Para un valor <span class="math inline">\(\alpha_0 \in ( 0,1 )\)</span>, sea <span class="math display">\[\mathbb{T}_{\alpha_0}  =   \left\lbrace  \delta | \alpha(\delta) = \alpha_0 \right\rbrace\]</span> el conjunto de todos los contrastes <span class="math inline">\(\delta\)</span> que tienen tamaño <span class="math inline">\(\alpha_0\)</span>. Entonces el contraste de tamaño <span class="math inline">\(\alpha_0\)</span> <strong>más potente</strong>, denotado <span class="math inline">\(\delta^{\ast}\)</span>, satisface:</p>
 <ol type="a">
@@ -398,8 +398,8 @@ code {
 <li><span class="math inline">\(\beta(\delta^\ast) \leq \beta(\delta)\)</span>, <span class="math inline">\(\forall \delta \in \mathbb{T}_{\alpha_0}\)</span>.</li>
 </ol>
 </section>
-<section id="contrastes-más-potentes-4" class="slide level2">
-<h2>Contrastes más potentes</h2>
+<section class="slide level2">
+
 <p>El punto de este tema es que al enfocarse en solo dos valores para <span class="math inline">\(\theta\)</span> y fijar el tamaño del contraste en <span class="math inline">\(\alpha_0\)</span> entonces solo tenemos que concentrarnos en la potencia en <span class="math inline">\(\theta_1\)</span>. En general y en la práctica es raro fijar una hipótesis alterna que sea simple por lo que tendríamos que comparar toda la función potencia en <span class="math inline">\(\Omega_{1}\)</span> entre distintos contrastes, lo que es considerablemente más complicado de hacer que solo comparar dos valores. No obstante, más adelante en el tema veremos una forma de lograr esto para ciertos contrastes.</p>
 </section>
 <section id="lema-de-neyman-pearson" class="slide level2">
@@ -408,7 +408,7 @@ code {
 <p><strong>Teorema 4.1:</strong> <em>Lema de Neyman-Pearson</em>. Supongamos que se desea contrastar las hipótesis simples <span class="math inline">\(H_{0}: \theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta = \theta_1\)</span> basados en una muestra aleatoria de una población con distribución que depende de <span class="math inline">\(\theta\)</span>. Además, sea <span class="math inline">\(\mathcal{L}(\theta)\)</span> la función de verosimilitud de la muestra para un valor de <span class="math inline">\(\theta\)</span>. Para un tamaño dado <span class="math inline">\(\alpha_0\)</span>, el contraste que minimiza <span class="math inline">\(\beta(\delta)\)</span> tiene una región crítica determinada por:</p>
 <p><span class="math display">\[RC_{\delta^\ast} = \left\lbrace \mathbf{X} \left| \frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)} &lt; k \right. \right\rbrace,\]</span> para algún <span class="math inline">\(k&gt;0\)</span>.</p>
 </section>
-<section id="contrastes-más-potentes-5" class="slide level2">
+<section id="contrastes-más-potentes-1" class="slide level2">
 <h2>Contrastes más potentes</h2>
 <p>Note que:</p>
 <ul>
@@ -417,15 +417,15 @@ code {
 <li>El valor de <span class="math inline">\(k\)</span> se selecciona de manera que el contraste tenga tamaño <span class="math inline">\(\alpha_0\)</span>. Este contraste se denomina como <strong>contraste más potente</strong> para un tamaño <span class="math inline">\(\alpha_0\)</span>, pues es la prueba con un valor máximo de <span class="math inline">\(\operatorname{Potencia}(\theta_1)\)</span>.</li>
 </ul>
 </section>
-<section id="contrastes-más-potentes-6" class="slide level2">
-<h2>Contrastes más potentes</h2>
+<section class="slide level2">
+
 <p>Podemos observar que un contraste con esta región crítica tiene sentido con la interpretación de la función de verosimilitud. Recordemos que entre más verosímil es un valor de <span class="math inline">\(\theta\)</span> para la muestra dada, mayor es su función de verosimilitud. Por lo tanto, si <span class="math inline">\(\theta = \theta_0\)</span> entonces se espera que <span class="math inline">\(\mathcal{L}(\theta_0) &gt; \mathcal{L}(\theta_1)\)</span>, favoreciendo a <span class="math inline">\(H_0\)</span> sobre <span class="math inline">\(H_1\)</span> y viceversa. De esta manera el contraste más potente consiste en escoger la hipótesis más verosímil para la muestra obtenida, fijando de antemano una máxima probabilidad de cometer Error Tipo I.</p>
 <p><strong>Ejemplo:</strong> Suponga que <span class="math inline">\(Y\)</span> representa una sola observación con función de densidad dada por:</p>
 <p><span class="math inline">\(f_{Y}(y) = \begin{cases}\theta y^{\theta-1} \quad si \quad 0 \leq y \leq 1 \\0 \quad en \quad otros \quad casos \end{cases}\)</span></p>
 <p>Determine el contraste más potente con un tamaño <span class="math inline">\(\alpha_0 = 0.05\)</span>, para contrastar <span class="math inline">\(H_{0}: \theta = 2\)</span> contra <span class="math inline">\(H_{1}: \theta = 1\)</span>.</p>
 </section>
-<section id="contrastes-más-potentes-7" class="slide level2">
-<h2>Contrastes más potentes</h2>
+<section class="slide level2">
+
 <p><strong>Solución:</strong> Por el Lema de Neyman-Pearson sabemos que se rechaza <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\frac{\mathcal{L}(2)}{\mathcal{L}(1)} &lt; k\)</span>. Debemos encontrar esta expresión para el ejemplo que tenemos. En este caso la verosimilitud viene dada por: <span class="math inline">\(\mathcal{L}(\theta) = \theta y^{\theta-1}\)</span></p>
 <p>Por lo tanto, al evaluar en <span class="math inline">\(\Omega_{0}\)</span> y <span class="math inline">\(\Omega_{1}\)</span> tenemos:</p>
 <p><span class="math inline">\(\mathcal{L}(2) = 2y, \qquad \qquad \mathcal{L}(1) = 1, \qquad \qquad \Rightarrow \frac{\mathcal{L}(2)}{\mathcal{L}(1)} = 2y\)</span></p>
@@ -433,16 +433,16 @@ code {
 <p><span class="math inline">\(P(Y &lt; k^{\prime} | \theta = 2) = F_{Y}(k^{\prime}| \theta = 2) = {k^{\prime}}^{2} = 0.05, \quad \Rightarrow k^{\prime} = \sqrt{0.05}\)</span></p>
 <p>Podemos concluir que el contraste más potente consiste en rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(Y &lt; \sqrt{0.05}\)</span>, con un nivel de significancia de 0.05. Observen que no es necesario encontrar el valor de <span class="math inline">\(k\)</span> exacto, ya que el tamaño del contraste va a seguir siendo igual. Solo queremos encontrar una regla de decisión para el contraste.</p>
 </section>
-<section id="contrastes-más-potentes-8" class="slide level2">
-<h2>Contrastes más potentes</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplo:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_j \sim N(\mu,1)\)</span>. Se desea contrastar las hipótesis <span class="math inline">\(H_{0}: \mu = \mu_0\)</span> contra <span class="math inline">\(H_{1}: \mu = \mu_1\)</span>, donde <span class="math inline">\(\mu_0 &lt; \mu_1\)</span>. Obtenga el contraste más potente para un tamaño dado <span class="math inline">\(\alpha_0\)</span>.</p>
 <p><strong>Solución:</strong> Recordemos que para esta muestra normal la verosimilitud viene dada por la siguiente expresión:</p>
 <p><span class="math inline">\(\mathcal{L}(\mu) = (2\pi)^{-\frac{n}{2}} e^{-\frac{\sum(x_{j}-\mu)^{2}}{2}} = (2\pi)^{-\frac{n}{2}} e^{-\frac{\sum{x_{j}^{2}} -2n\mu \bar{x} + n\mu^2 }{2}}\)</span></p>
 <p>Por lo tanto cuando obtenemos el cociente de las verosimilitudes para encontrar la región crítica según el Lema de Neyman-Pearson obtenemos:</p>
 <p><span class="math inline">\(\frac{\mathcal{L}(\mu_0)}{\mathcal{L}(\mu_1)} = \frac{e^{n\mu_{0} \bar{x} -\frac{n\mu_{0}^{2}}{2}}}{e^{n\mu_{1} \bar{x} -\frac{n\mu_{1}^{2}}{2}}} = e^{n\left( \bar{x}(\mu_0 - \mu_1 )  -\frac{1}{2}( \mu_{0}^2 - \mu_{1}^2 )    \right) } = e^{ n\bar{x}(\mu_0 - \mu_1 ) } \cdot e^{ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } &lt; k\)</span></p>
 </section>
-<section id="contrastes-más-potentes-9" class="slide level2">
-<h2>Contrastes más potentes</h2>
+<section class="slide level2">
+
 <p>A partir de esta expresión debemos encontrar el valor crítico de la prueba, ya sabemos que rechazamos <span class="math inline">\(H_{0}\)</span> si:</p>
 <p><span class="math inline">\(e^{ n\bar{x}(\mu_0 - \mu_1 ) } \cdot e^{ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } &lt; k\)</span> <span class="math inline">\(\Rightarrow  e^{ n\bar{x}(\mu_0 - \mu_1 ) } &lt; k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }\)</span> <span class="math inline">\(\Rightarrow n\bar{x}(\mu_0 - \mu_1 ) &lt; \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  }\)</span> <span class="math inline">\(\Rightarrow \bar{x} &gt; \frac{ \ln{ \left(  k e^{\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) } \right)  } }{n(\mu_0 - \mu_1 )} = k^{\prime}\)</span></p>
 <p>Por lo tanto, nuestro contraste consiste en rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\bar{X} &gt; k^{\prime}\)</span>. Ahora debemos encontrar el valor de <span class="math inline">\(k^{\prime}\)</span> para un tamaño dado <span class="math inline">\(\alpha_0\)</span>:</p>
@@ -454,37 +454,37 @@ code {
 <p>Una observación interesante que podemos realizar del ejemplo anterior es que este no depende realmente del valor de la hipótesis alterna, solo depende del valor de la hipótesis nula y de la relación entre ambos valores; esto es un patrón común con los contrastes obtenidos mediante el Lema de Neyman-Pearson. Por lo tanto, en ciertos casos, nos es posible generalizar el resultado de este tipo de contrastes para más de un valor en <span class="math inline">\(H_1\)</span>.</p>
 <p>Supongamos que se desea probar las hipótesis <span class="math inline">\(H_{0}: \theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta &gt; \theta_0\)</span>. En este caso parece que no podemos aplicar el Lema de Neyman-Pearson pues la hipótesis alterna es compuesta. Sin embargo, podemos redefinir la hipótesis alterna como <span class="math inline">\(H_{1}: \theta = \theta_1\)</span>, donde <span class="math inline">\(\theta_1 &gt; \theta_0\)</span>. De esta manera tenemos un contraste de hipótesis simples al que le podemos aplicar el Lema de Neyman-Pearson y que donde ya vimos que el valor de <span class="math inline">\(\theta_1\)</span> no se utiliza en la definición de la región crítica. Podemos definir esto de la siguiente manera:</p>
 </section>
-<section id="contrastes-uniformemente-más-potentes-1" class="slide level2">
-<h2>Contrastes uniformemente más potentes</h2>
+<section class="slide level2">
+
 <p><strong>Definición 4.8:</strong> <em>Contraste uniformemente más potente</em>. Un contraste de tamaño <span class="math inline">\(\alpha_0\)</span> es <strong>uniformemente más potente</strong> (UMP) para contrastar <span class="math inline">\(H_{0}:\theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta \in \Omega_{1}\)</span> si es más potente para <span class="math inline">\(H_{0}:\theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta = \theta_1\)</span>, para todo <span class="math inline">\(\theta_1 \in \Omega_{1}\)</span>.</p>
 <p>Bajo esta definición vamos a poder encontrar fácilmente contrastes UMP para las hipótesis alternas <span class="math inline">\(H_{1}: \theta &gt; \theta_0\)</span> o <span class="math inline">\(H_{1}: \theta &lt; \theta_0\)</span>, siempre y cuando la distribución poblacional lo permite. Sin embargo, no es posible encontrar un contraste UMP para la hipótesis alterna <span class="math inline">\(H_{1}: \theta \neq \theta_0\)</span> ya que será imposible encontrar el mismo contraste más potente para todo valor de <span class="math inline">\(\theta_1\)</span> diferente de <span class="math inline">\(\theta_0\)</span>.</p>
 </section>
-<section id="contrastes-uniformemente-más-potentes-2" class="slide level2">
-<h2>Contrastes uniformemente más potentes</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplo:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_j \sim N(\mu,1)\)</span>. Se desea contrastar las hipótesis <span class="math inline">\(H_{0}: \mu = \mu_0\)</span> contra <span class="math inline">\(H_{1}: \mu &gt; \mu_0\)</span>, con un nivel de significancia de <span class="math inline">\(\alpha_0\)</span>.</p>
 <p><strong>Solución:</strong> Empecemos por definir un valor de <span class="math inline">\(\mu_1\)</span> tal que <span class="math inline">\(\mu_1 &gt; \mu_0\)</span>. De esta forma podemos re-escribir la hipótesis alterna como <span class="math inline">\(H_{1}: \mu = \mu_1\)</span>, <span class="math inline">\(\forall \mu_{1} &gt; \mu_{0}\)</span>. Una vez hecho esto el ejercicio se vuelve idéntico al anterior y por lo tanto podemos concluir que el contraste UMP consiste en rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\bar{X} &gt; \mu_{0} + \frac{z_{1-\alpha_0}}{\sqrt{n}}\)</span> para un nivel de significancia <span class="math inline">\(\alpha_0\)</span>.</p>
 <p>Cuando se da el caso de que exista un contraste UMP (que será el caso para los ejemplos vistos en clases), existe una definición y un teorema que nos facilita la obtención del contraste.</p>
 </section>
-<section id="contrastes-uniformemente-más-potentes-3" class="slide level2">
-<h2>Contrastes uniformemente más potentes</h2>
+<section class="slide level2">
+
 <p><strong>Definición 4.9:</strong> <em>Cociente de verosimilitudes monótono</em>. Una muestra aleatoria con función de verosimilitud <span class="math inline">\(\mathcal{L}(\theta)\)</span> tiene un <em>cociente de verosimilitudes monótono</em> (CVM) en un estadístico <span class="math inline">\(T = T(X_{1}, X_{2}, ... , X_{n})\)</span> si, para <span class="math inline">\(\theta_0 &lt; \theta_1\)</span>, el cociente <span class="math inline">\(\frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)}\)</span> es una función monótona de <span class="math inline">\(T\)</span>.</p>
 </section>
-<section id="contrastes-uniformemente-más-potentes-4" class="slide level2">
-<h2>Contrastes uniformemente más potentes</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplo:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_j \sim N(\mu,1)\)</span>. Demuestre que <span class="math inline">\(\mathcal{L}(\mu)\)</span> tiene un CVM en el estadístico <span class="math inline">\(\bar{X}\)</span>.</p>
 <p><strong>Solución:</strong> Sea <span class="math inline">\(\mu_0 &lt; \mu_1\)</span>. Anteriormente habíamos trabajado una expresión para este cociente de verosimilitudes:</p>
 <p><span class="math inline">\(\frac{\mathcal{L}(\mu_0)}{\mathcal{L}(\mu_1)} = e^{ n\bar{x}(\mu_0 - \mu_1 ) } \cdot e^{ -\frac{n}{2}( \mu_{0}^2 - \mu_{1}^2 ) }\)</span></p>
 <p>Lo que nos interesa es demostrar que esta es una función monótona de <span class="math inline">\(\bar{X}\)</span>. Observemos que la cantidad <span class="math inline">\(e^{ -\frac{1}{2}( \mu_{0}^2 - \mu_{1}^2 )}\)</span> no depende de <span class="math inline">\(\bar{X}\)</span>, por lo que puede ser tratada como una constante. Por otro lado la expresión <span class="math inline">\(e^{ n\bar{x}(\mu_0 - \mu_1 )}\)</span> es una función de <span class="math inline">\(\bar{X}\)</span>, y sabemos que la exponencial es siempre creciente si su exponente es positivo o siempre decreciente si su exponente es negativo. En este caso, como <span class="math inline">\(\mu_0-\mu_1&lt;0\)</span>, el CVM es decreciente en <span class="math inline">\(\bar{X}\)</span>.</p>
 <p>Por lo tanto, concluimos que <span class="math inline">\(\mathcal{L}(\mu)\)</span> tiene un CVM en <span class="math inline">\(\bar{X}\)</span>.</p>
 </section>
-<section id="contrastes-uniformemente-más-potentes-5" class="slide level2">
-<h2>Contrastes uniformemente más potentes</h2>
+<section class="slide level2">
+
 <p><strong>Teorema 4.2:</strong> Si la distribución tiene un CVM en el estadístico <span class="math inline">\(T\)</span>, entonces el contraste UMP para <span class="math inline">\(H_{0}: \theta = \theta_0\)</span> contra <span class="math inline">\(H_{1}: \theta &gt; \theta_0\)</span> o <span class="math inline">\(H_{1}: \theta &lt; \theta_0\)</span> existe y este se puede expresar en términos de <span class="math inline">\(T\)</span>, en lugar del cociente <span class="math inline">\(\frac{\mathcal{L}(\theta_0)}{\mathcal{L}(\theta_1)}\)</span>.</p>
 <p><strong>Nota:</strong> Este teorema nos facilita la obtención del contraste UMP pues nos garantiza que la regla de decisión que depende del estadístico <span class="math inline">\(T\)</span>. Además, al ser el cociente de verosimilitudes una función monótona de <span class="math inline">\(T\)</span> entonces existe una relación directa entre la hipótesis alternativa y la regla de decisión.</p>
 <p>Específicamente, en el caso cuando tenemos <span class="math display">\[H_{0}: \theta = \theta_0,~~~~ \text{contra}~~~~ H_{1}: \theta &gt; \theta_0.\]</span> Y <strong>el cociente de verosimilitudes es monótonamente decreciente</strong>, entonces el contraste UMP para un nivel de significancia <span class="math inline">\(\alpha_0\)</span> consiste en rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(T&gt;k\)</span>. Para el caso de <span class="math inline">\(H_{1}: \theta &lt; \theta_0\)</span>, el contraste es <span class="math inline">\(T&lt;k\)</span>. Luego, el valor de <span class="math inline">\(k\)</span> se encuentra fijando el tamaño del contraste en <span class="math inline">\(\alpha_0\)</span>. Por otro lado, si <strong>el cociente de verosimilitudes es monótonamente creciente</strong>, la regla sería inversa.</p>
 </section>
-<section id="contrastes-uniformemente-más-potentes-6" class="slide level2">
-<h2>Contrastes uniformemente más potentes</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplo:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_j \sim N(\mu,1)\)</span>. Se desea contrastar las hipótesis <span class="math inline">\(H_{0}: \mu = \mu_0\)</span> contra <span class="math inline">\(H_{1}: \mu &lt; \mu_0\)</span>. Obtenga el contraste UMP para un tamaño dado <span class="math inline">\(\alpha_0\)</span>.</p>
 <p><strong>Solución:</strong> Anteriormente se demostró que <span class="math inline">\(\mathcal{L}(\mu)\)</span> tiene un CVM en <span class="math inline">\(\bar{X}\)</span> por lo que por el teorema anterior sabemos que vamos a rechazar <span class="math inline">\(H_0\)</span> si <span class="math inline">\(\bar{X} &lt; c\)</span>. Procedemos a encontrar el valor de <span class="math inline">\(c\)</span>:</p>
 <p><span class="math inline">\(\alpha_0 = P\left( \bar{X} &lt; c | \mu = \mu_0 \right)  = P\left( Z &lt; \sqrt{n}(c - \mu_0 ) \right)\)</span></p>
