@@ -380,8 +380,8 @@
 <p><strong>Prueba.</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{i}\)</span> pertenece a la familia exponencial. Entonces se cumple,</p>
 <p><span class="math display">\[\mathcal{L}(\theta) = \prod_{i=1}^{n} b(X_{i})c(\theta)e^{-a(X_{i})d(\theta)} = c(\theta)^{n} \prod_{i=1}^{n} b(X_{i}) e^{-d(\theta)\sum_{i=1}^{n} a(X_{i}) }\]</span></p>
 </section>
-<section id="suficiencia-para-familias-exponenciales-1" class="slide level2">
-<h2>Suficiencia para familias exponenciales</h2>
+<section class="slide level2">
+
 <p>Si tomamos como</p>
 <p><span class="math display">\[\begin{align}
 U &amp;= \sum_{i=1}^{n} a(X_{i}) \\
@@ -390,8 +390,8 @@ g(U,\theta) &amp;= c(\theta)^{n} e^{-d(\theta)U}
 \end{align}\]</span></p>
 <p>entonces, por la técnica de factorización, se cumple que <span class="math inline">\(U\)</span> es suficiente para <span class="math inline">\(\theta\)</span>.</p>
 </section>
-<section id="suficiencia-1" class="slide level2">
-<h2>Suficiencia</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplo.</strong> Sea <span class="math inline">\(X_1,X_2,...,X_n\)</span> una m.a. tal que <span class="math inline">\(X_i \sim Poisson(\lambda)\)</span>, encuentre el estadístico suficiente utilizando la técnica de la familia exponencial.</p>
 <p><strong>Solución.</strong> Lo primero consiste en demostrar que la función de probabilidad de una Poisson tiene la forma de la familia exponencial. Viendo la función de probabilidad de una Poisson, <span class="math inline">\(f(x|\lambda) = \frac{\lambda^{x}e^{-\lambda}}{x!}\)</span>, esta pareciera no cumplir la forma de la familia exponencial, no obstante podemos realizar algunas operaciones algebraicas para alcanzar esa forma:</p>
 <p><span class="math display">\[\begin{align*}
@@ -399,8 +399,8 @@ f(x|\lambda) &amp;= \frac{\lambda^{x}e^{-\lambda}}{x!} = e^{\ln\left(\frac{\lamb
 &amp;= e^{x\ln(\lambda) - \lambda - \ln(x!)} = e^{-\lambda}e^{x\ln(\lambda)}\frac{1}{x!}
 \end{align*}\]</span></p>
 </section>
-<section id="suficiencia-2" class="slide level2">
-<h2>Suficiencia</h2>
+<section class="slide level2">
+
 <p>Podemos ver que esta expresión tiene la forma de la familia exponencial con</p>
 <p><span class="math inline">\(\begin{matrix} a(x)=x &amp; c(\lambda )={ e }^{ -\lambda  } \\ b(x)=\frac { 1 }{ x! }  &amp; d(\lambda )=-\ln { (\lambda ) }  \end{matrix}\)</span></p>
 <p>Por lo tanto podemos concluir que <span class="math inline">\(U = \sum_{j=1}^{n} X_{j}\)</span> es un estadístico suficiente mínimo para <span class="math inline">\(\lambda\)</span>.</p>
@@ -408,8 +408,8 @@ f(x|\lambda) &amp;= \frac{\lambda^{x}e^{-\lambda}}{x!} = e^{\ln\left(\frac{\lamb
 <p><span class="math inline">\(f_{X}(x) = \begin{cases}\frac{\alpha x^{\alpha-1}}{\theta} e^{-\frac{x^{\alpha}}{\theta}} \quad si \quad x &gt; 0 \\  0 \quad si \quad x \leq 0   \end{cases}\)</span></p>
 <p>Encuentre un estadístico suficiente para <span class="math inline">\(\theta\)</span>.</p>
 </section>
-<section id="suficiencia-3" class="slide level2">
-<h2>Suficiencia</h2>
+<section class="slide level2">
+
 <p><strong>Solución.</strong> Podemos apreciar de la función de densidad anterior lo siguiente:</p>
 <p><span class="math inline">\(\begin{matrix} a(x) = x^{\alpha} &amp; c(\theta) = \frac{1}{\theta} \\ b(x) = \alpha x^{\alpha-1} &amp; d(\theta) = \frac{1}{\theta} \end{matrix}\)</span></p>
 <p>Por lo tanto, por la técnica de la familia exponencial, el estadístico</p>
@@ -446,14 +446,14 @@ f(x|\lambda) &amp;= \frac{\lambda^{x}e^{-\lambda}}{x!} = e^{\ln\left(\frac{\lamb
 <p><strong>NOTA:</strong> ¿Es el mismo señor Rao de Cramer-Rao? SI!</p>
 <p><strong>NOTA:</strong> se puede demostrar que si <span class="math inline">\(\hat{\theta}\)</span> es insesgado, entonces el estimador mejorado <span class="math inline">\(\hat{\theta}^{*}\)</span> también será insesgado.</p>
 </section>
-<section id="estimadores-rao-blackwell-1" class="slide level2">
-<h2>Estimadores Rao-Blackwell</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplo:</strong> Suponga que una operadora de llamadas recibe llamadas de acuerdo a un proceso Poisson con promedio de llamadas por minuto, <span class="math inline">\(\lambda\)</span>. Se obtiene una muestra aleatoria <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> de las llamadas telefónicas que llegaron en <span class="math inline">\(n\)</span> periodos sucesivos de un minuto. Para estimar la probabilidad de que el siguiente periodo de un minuto pase sin llamadas ( <span class="math inline">\(e^{-\lambda}\)</span> ) se utiliza el siguiente estimador:</p>
 <p><span class="math display">\[\hat{\lambda} = \begin{cases} 1 \quad si \quad X_{1} = 0 \\0 \quad en \quad otros \quad casos \end{cases}\]</span></p>
 <p>Es decir, se estima la probabilidad en 1 si no se recibieron llamadas en el primer minuto y cero en el caso contrario. Con base en esto, obtenga el estimador de Rao-Blackwell.</p>
 </section>
-<section id="estimadores-rao-blackwell-2" class="slide level2">
-<h2>Estimadores Rao-Blackwell</h2>
+<section class="slide level2">
+
 <p><strong>Solución:</strong> <span class="math inline">\(U = \sum_{j=1}^{n} X_{j}\)</span> es un estadístico suficiente para <span class="math inline">\(\lambda\)</span>, por lo que encontramos el estimador de Rao-Blackwell a partir de este estadístico:</p>
 <p><span class="math display">\[\begin{align*}
 \hat{\lambda}^{*} = E\left(\hat{\lambda}\mid U = u \right)
@@ -483,8 +483,8 @@ f(x|\lambda) &amp;= \frac{\lambda^{x}e^{-\lambda}}{x!} = e^{\ln\left(\frac{\lamb
 <p><span class="math display">\[E(U) = E\left(\sum_{j=1}^{n} X_{j}\right) = np \Rightarrow \hat{p} = \frac{U}{n} = \frac{\sum\limits_{j=1}^{n} X_{j}}{n}\]</span></p>
 <p>es un EIVM para <span class="math inline">\(p\)</span>.</p>
 </section>
-<section id="estimadores-insesgados-de-varianza-mínima-eivm-1" class="slide level2">
-<h2>Estimadores Insesgados de Varianza Mínima (EIVM)</h2>
+<section class="slide level2">
+
 <p><strong>Ejemplo.</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria tal que <span class="math inline">\(X_{j} \sim Exp(\beta)\)</span>. Demuestre que <span class="math inline">\(\overline{X}\)</span> es un EIVM para <span class="math inline">\(\beta\)</span>.</p>
 <p><strong>Solución.</strong> Suponiendo que la exponencial es una familia completa, debemos encontrar un estadístico suficiente para <span class="math inline">\(\beta\)</span>. Recordemos la función de densidad:</p>
 <p><span class="math inline">\(f_{X}(x) = \frac{1}{\beta}e^{-\frac{x}{\beta}}\)</span>. En este caso es evidente la forma de la familia exponencial:</p>
@@ -513,8 +513,8 @@ f(y|\theta)= \left\lbrace
 \]</span> Muestre que <span class="math inline">\(Y_{(n)}=max \{ X_1 ,...,X_n \}\)</span> es suficiente para <span class="math inline">\(\theta\)</span>.</li>
 </ol>
 </section>
-<section id="ejercicios-1" class="slide level2">
-<h2>Ejercicios</h2>
+<section class="slide level2">
+
 <h3 id="por-qué-demostrar-que-un-estimador-es-eivm-es-importante">¿Por qué demostrar que un estimador es EIVM es importante?</h3>
 <h3 id="práctica-hasta-eivm.">Práctica hasta EIVM.</h3>
 </section></section>
