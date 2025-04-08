@@ -448,22 +448,22 @@ f(x|\lambda) &amp;= \frac{\lambda^{x}e^{-\lambda}}{x!} = e^{\ln\left(\frac{\lamb
 </section>
 <section class="slide level2">
 
-<p><strong>Ejemplo:</strong> Suponga que una operadora de llamadas recibe llamadas de acuerdo a un proceso Poisson con promedio de llamadas por minuto, <span class="math inline">\(\lambda\)</span>. Se obtiene una muestra aleatoria <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> de las llamadas telefónicas que llegaron en <span class="math inline">\(n\)</span> periodos sucesivos de un minuto. Para estimar la probabilidad de que el siguiente periodo de un minuto pase sin llamadas ( <span class="math inline">\(e^{-\lambda}\)</span> ) se utiliza el siguiente estimador:</p>
-<p><span class="math display">\[\hat{\lambda} = \begin{cases} 1 \quad si \quad X_{1} = 0 \\0 \quad en \quad otros \quad casos \end{cases}\]</span></p>
+<p><strong>Ejemplo:</strong> Suponga que una operadora de llamadas recibe llamadas de acuerdo a un proceso Poisson con promedio de llamadas por minuto, <span class="math inline">\(\lambda\)</span>. Se obtiene una muestra aleatoria <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> de las llamadas telefónicas que llegaron en <span class="math inline">\(n\)</span> periodos sucesivos de un minuto. Para estimar la probabilidad de que el siguiente periodo de un minuto pase sin llamadas (<span class="math inline">\(\theta = e^{-\lambda}\)</span> ) se utiliza el siguiente estimador:</p>
+<p><span class="math display">\[\hat{\theta} = \begin{cases} 1 \quad si \quad X_{1} = 0 \\0 \quad en \quad otros \quad casos \end{cases}\]</span></p>
 <p>Es decir, se estima la probabilidad en 1 si no se recibieron llamadas en el primer minuto y cero en el caso contrario. Con base en esto, obtenga el estimador de Rao-Blackwell.</p>
 </section>
 <section class="slide level2">
 
 <p><strong>Solución:</strong> <span class="math inline">\(U = \sum_{j=1}^{n} X_{j}\)</span> es un estadístico suficiente para <span class="math inline">\(\lambda\)</span>, por lo que encontramos el estimador de Rao-Blackwell a partir de este estadístico:</p>
 <p><span class="math display">\[\begin{align*}
-\hat{\lambda}^{*} = E\left(\hat{\lambda}\mid U = u \right)
+\hat{\theta}^{*} = E\left(\hat{\lambda}\mid U = u \right)
 &amp;= P\left(X_{1} = 0 \mid \sum_{j=1}^{n} X_{j} = u\right) \\
 &amp;=\frac{P\left(X_{1} = 0 , \sum_{j=1}^{n} X_{j} = u\right)}{P\left(\sum_{j=1}^{n} X_{j} = u\right)}
 =\frac{P\left(X_{1} = 0 ,\sum_{j=2}^{n} X_{j} = u\right)}{P\left(\sum_{j=1}^{n} X_{j} = u\right)} \\
 &amp;= \dfrac{e^{-\lambda}\frac{((n-1)\lambda)^{u}e^{-(n-1)\lambda}}{u!} }{\frac{(n\lambda)^{u}e^{-n\lambda}}{u!}}\\
 &amp;= \left(\frac{n-1}{n}\right)^{u} = \left(1-\frac{1}{n}\right)^{u}
 \end{align*}\]</span></p>
-<p>Por lo tanto <span class="math inline">\(\hat{\lambda}^{*} = \left(1-\frac{1}{n}\right)^{\sum_{j=1}^{n}X_{j}}\)</span> es un estimador suficiente con menor ECM que <span class="math inline">\(\hat{\lambda}\)</span>.</p>
+<p>Por lo tanto <span class="math inline">\(\hat{\theta}^{*} = \left(1-\frac{1}{n}\right)^{\sum_{j=1}^{n}X_{j}}\)</span> es un estimador suficiente con menor ECM que <span class="math inline">\(\hat{\theta}\)</span>.</p>
 </section>
 <section id="teorema-de-lehmann-scheffé" class="slide level2">
 <h2>Teorema de Lehmann-Scheffé</h2>
