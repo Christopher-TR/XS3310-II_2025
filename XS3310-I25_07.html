@@ -506,7 +506,7 @@
 <p>Tenemos que <span class="math display">\[\frac{\partial^{2} \ell(\mu,\omega)}{\partial \mu^{2}} = -\frac{n}{\sigma^2},~~~~~~~~~~~\frac{\partial^{2} \ell(\mu,\omega)}{\partial \omega^{2}} = \frac{n}{2\omega^2} - \frac{\sum(x_{j} -\mu)^2}{\omega^3}\]</span></p>
 <p><span class="math display">\[\text{y}~~~\frac{\partial^{2} \ell(\mu,\omega)}{\partial \mu \partial \omega} =  - \frac{\sum(x_{j} -\mu)}{\omega^2}\]</span> La matriz hessiana es</p>
 <p><span class="math display">\[ \begin{bmatrix}
-   -\frac{n}{\sigma^2} &amp; - \frac{\sum(x_{j} -\mu)}{\omega^2} \\
+   -\frac{n}{\omega} &amp; - \frac{\sum(x_{j} -\mu)}{\omega^2} \\
    - \frac{\sum(x_{j} -\mu)}{\omega^2} &amp; \frac{n}{2\omega^2} - \frac{\sum(x_{j} -\mu)^2}{\omega^3}
    \end{bmatrix}  \]</span></p>
 </section>
@@ -514,7 +514,7 @@
 
 <p>El determinante de la matriz hessiana evaluada en <span class="math inline">\((\mu=\hat{\mu},~\omega=\hat{\omega})\)</span> es:</p>
 <p><span class="math display">\[ \left| \begin{bmatrix}
-   -\frac{n}{\sigma^2} &amp; - \frac{\sum(x_{j} -\mu)}{\omega^2} \\
+   -\frac{n}{\omega} &amp; - \frac{\sum(x_{j} -\mu)}{\omega^2} \\
    - \frac{\sum(x_{j} -\mu)}{\omega^2} &amp; \frac{n}{2\omega^2} - \frac{\sum(x_{j} -\mu)^2}{\omega^3}
    \end{bmatrix}  \right|_{(\mu=\hat{\mu},~\omega=\hat{\omega})}\]</span> <span class="math display">\[=\left. \frac{1}{\omega^3}\left[ \frac{-n^2}{2} + \frac{n}{\omega}\sum_{i=1}^n (x_i-\mu)^2 - \frac{1}{\omega}\left( \sum_{i=1}^n (x_i-\mu) \right)^2 \right]\right|_{(\mu=\hat{\mu},~\omega=\hat{\omega})}\]</span> <span class="math display">\[=\frac{1}{\hat{\omega}^3} \left[  \frac{-n^2}{2} + n^2 \right]= \frac{n^2}{2\hat{ \omega}^3}&gt;0.\]</span> El determinante de la matriz hessiana es positivo, entonces el punto crítico encontrado es máximo o mínimo (no es punto de silla). Luego, para mostrar que es un máximo local, basta mostrar que las segundas derivadas parciales son negativas (ya se mostró anteriormente).</p>
 </section>
