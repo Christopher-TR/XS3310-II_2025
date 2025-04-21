@@ -527,6 +527,24 @@
 <p><span class="math display">\[\mathcal{L}(\lambda) = \prod_{j=1}^{n} \frac{\lambda^{x_{j}}e^{-\lambda}}{x_{j}!} = \frac{\lambda^{\sum x_{j}}e^{-n\lambda}}{\prod x_{j}! }\]</span></p>
 <p>Si tomamos <span class="math inline">\(U = \sum_{j=1}^{n} X_{j}\)</span> entonces podemos observar que <span class="math inline">\(g(u,\lambda) = \lambda^{u} e^{-n\lambda}\)</span> y <span class="math inline">\(h(x_{1}, x_{2}, ... , x_{n}) = \frac{1}{\prod x_{j}! }\)</span> cumplen que su producto sea igual a la verosimilitud, por lo que <span class="math inline">\(U = \sum_{j=1}^{n} X_{j}\)</span> es un estadístico suficiente mínimo.</p>
 </section>
+<section class="slide level2">
+
+<p><strong>Ejemplo:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria de una población uniforme en el intervalo <span class="math inline">\((0,\theta)\)</span>. Demuestre que el máximo muestral es un estimador suficiente para <span class="math inline">\(\theta\)</span> por técnica de factorización.</p>
+<p><strong>Solución:</strong> Como el dominio de la función de densidad depende del parámetro de interés, vamos a introducir el concepto de la función indicadora. Para valores <span class="math inline">\(a&lt;b\)</span>: <span class="math display">\[I_{[a, b]}(y)=\left\{\begin{array}{lc}
+1, &amp; \text { si } a \leq y \leq b, \\
+0, &amp; \text { otros casos. }
+\end{array} \right.\]</span> De esta forma, la función de densidad de una uniforme en el intervalo <span class="math inline">\((0,\theta)\)</span> se puede expresar como <span class="math display">\[f(y \mid \theta)=\frac{1}{\theta} I_{[0, \theta]}(y).\]</span></p>
+</section>
+<section class="slide level2">
+
+<p><span class="math display">\[ \Rightarrow L(\theta)=\frac{1}{\theta^n} \prod\limits_{i=1}^n I_{[0, \theta]}\left(y_i\right)=\frac{1}{\theta^n} I_{[0, \theta]}\left(y_{(n)}\right),\]</span></p>
+<p>por el hecho de que:</p>
+<ul>
+<li><p><span class="math inline">\(\prod\limits_{i=1}^n I_{[0, \theta]}\left(y_i\right)\)</span> es <span class="math inline">\(1\)</span> si y solamente si para todo <span class="math inline">\(i=1,...,n\)</span>, <span class="math inline">\(I_{[0, \theta]}\left(y_i\right)=1\)</span>.</p></li>
+<li><p><span class="math inline">\(\prod\limits_{i=1}^n I_{[0, \theta]}\left(y_i\right)\)</span> es <span class="math inline">\(0\)</span> si y soloamente si para algún <span class="math inline">\(i=1,...,n\)</span>, <span class="math inline">\(I_{[0, \theta]}\left(y_i\right)=0\)</span>.</p></li>
+<li><p>Finalmente, definiendo <span class="math inline">\(h(y)=1\)</span> y <span class="math inline">\(g\left(y_{(n)}, \theta\right)=\frac{1}{\theta^n} I_{0, \theta}\left(y_{(n)}\right)\)</span>, tenemos que el máximo muestral <span class="math inline">\(Y_{(n)}\)</span> es suficiente para <span class="math inline">\(\theta\)</span>.</p></li>
+</ul>
+</section>
 <section id="ejercicios-adicionales" class="slide level2">
 <h2>Ejercicios adicionales</h2>
 <ul>
