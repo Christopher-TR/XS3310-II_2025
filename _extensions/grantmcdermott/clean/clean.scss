@@ -113,7 +113,7 @@ $selection-bg: #26351c !default;
   color: $accent;
   font-style: italic;
   // font-weight: 350;
-  font-weight: lighter;
+  font-weight: bold;
   font-size: 0.95em;
 }
 
@@ -128,6 +128,7 @@ $selection-bg: #26351c !default;
 
 .alert {
   color: $accent2;
+  font-weight: bold;
 }
 
 .fg {

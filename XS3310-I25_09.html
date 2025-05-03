@@ -420,7 +420,7 @@
 <div class="cell">
 <style type="text/css">
 code {
-  font-size: 2em;
+  font-size: 1.6em;
   /* or try font-size: xx-large; */
 }
 </style>
@@ -450,8 +450,8 @@ code {
 <p>En el primer caso se tienen dos valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> que constituyen los límites inferior y superior del intervalo. Es decir, el intervalo <span class="math inline">\(\left[a, b\right]\)</span> contiene el valor de <span class="math inline">\(\theta\)</span> con una confianza del <span class="math inline">\((1-\alpha)\cdot 100\%\)</span>.</p>
 <p>En el segundo caso, se determina solamente un límite, dependiendo del interés del estudio, que puede ser:</p>
 <ul>
-<li><p><strong>Intervalo unilateral inferior:</strong> de la forma <span class="math inline">\(\left[ a, +\infty \right)\)</span></p></li>
-<li><p><strong>Intervalo unilateral superior:</strong> de la forma <span class="math inline">\(\left( -\infty, b \right]\)</span>.</p></li>
+<li><p><span class="alert">Intervalo unilateral inferior:</span> de la forma <span class="math inline">\(\left[ a, +\infty \right)\)</span></p></li>
+<li><p><span class="alert">Intervalo unilateral superior:</span> de la forma <span class="math inline">\(\left( -\infty, b \right]\)</span>.</p></li>
 </ul>
 <p><strong>Nota:</strong> Los valores <span class="math inline">\(\pm \infty\)</span> pueden ser sustituidos por el mínimo o máximo valor del dominio del parámetro de interés.</p>
 </section>
@@ -459,13 +459,13 @@ code {
 <h2>Técnica para estimaciones por intervalo</h2>
 <ul>
 <li><p>Existen varias técnicas para obtener estimaciones por intervalo.</p></li>
-<li><p>En este curso nos enfocaremos en la <strong>técnica del pivote</strong>.</p></li>
+<li><p>En este curso nos enfocaremos en la <span class="alert">técnica del pivote</span>.</p></li>
 </ul>
 </section>
 <section id="técnica-del-pivote" class="slide level2">
 <h2>Técnica del pivote</h2>
-<p>Esta técnica consiste en definir una variable aleatoria, <span class="math inline">\(U\)</span>, que llamaremos <strong>pivote</strong>.</p>
-<p><strong>Definición 3.1:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria de una población que depende de un parámetro <span class="math inline">\(\theta\)</span>. Sea <span class="math inline">\(U(X_1,...,X_n,\theta)\)</span> una variable aleatoria. <span class="math inline">\(U\)</span> es una <em>variable pivote</em>, si cumple las siguientes condiciones:</p>
+<p>Esta técnica consiste en definir una variable aleatoria, <span class="math inline">\(U\)</span>, que llamaremos <span class="alert">pivote</span>.</p>
+<p><strong>Definición 3.1:</strong> Sea <span class="math inline">\(X_{1}, X_{2}, ... , X_{n}\)</span> una muestra aleatoria de una población que depende de un parámetro <span class="math inline">\(\theta\)</span>. Sea <span class="math inline">\(U(X_1,...,X_n,\theta)\)</span> una variable aleatoria. <span class="math inline">\(U\)</span> es una <span class="alert">variable pivote</span>, si cumple las siguientes condiciones:</p>
 <ul>
 <li><p><span class="math inline">\(U\)</span> debe estar definido en términos de los elementos de la muestra aleatoria y del parámetro desconocido, donde el parámetro desconocido <span class="math inline">\(\theta\)</span> sea la única cantidad desconocida.</p></li>
 <li><p>La distribución de probabilidad de U debe ser conocida y no depender de <span class="math inline">\(\theta\)</span>.</p></li>
@@ -492,16 +492,16 @@ code {
 
 <p>Una vez encontrada la variable pivote, el siguiente paso es encontrar un intervalo de confianza por medio de la técnica del pivote. Hay dos caminos:</p>
 <ul>
-<li><p><strong>Caso bilaterial:</strong> se requiere encontrar valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> tales que <span class="math inline">\(P(a \leq U \leq b) = 1-\alpha\)</span> y por lo tanto también se cumple que <span class="math inline">\(P(U &lt; a) + P(U &gt; b) = \alpha\)</span>. Sin embargo, estas condiciones generan un número infinito de posibilidades para <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> por lo que se tiene que limitar de alguna manera. Para ello, se acostumbra utilizar la condición de cada una de las probabilidades de las “colas” sean iguales, es decir <span class="math inline">\(P(U &lt; a) = P(U &gt; b) = \dfrac{\alpha}{2}\)</span>.</p></li>
-<li><p><strong>Caso unilaterial:</strong> podemos tener un límite inferior o superior. Dependiendo del que nos interese y de la forma del pivote debemos encontrar un valor <span class="math inline">\(a\)</span> o <span class="math inline">\(b\)</span> que cumpla <span class="math inline">\(P(U \geq a) = 1-\alpha\)</span> o <span class="math inline">\(P(U \leq b) = 1 -\alpha\)</span>. Finalmente, como <span class="math inline">\(U\)</span> está en términos de la muestra aleatoria y del parámetro <span class="math inline">\(\theta\)</span> entonces despejamos <span class="math inline">\(\theta\)</span> dentro de la probabilidad y con esto obtenemos los límites inferiores y superiores.</p></li>
+<li><p><span class="alert">Caso bilaterial:</span> se requiere encontrar valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> tales que <span class="math inline">\(P(a \leq U \leq b) = 1-\alpha\)</span> y por lo tanto también se cumple que <span class="math inline">\(P(U &lt; a) + P(U &gt; b) = \alpha\)</span>. Sin embargo, estas condiciones generan un número infinito de posibilidades para <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> por lo que se tiene que limitar de alguna manera. Para ello, se acostumbra utilizar la condición de cada una de las probabilidades de las “colas” sean iguales, es decir <span class="math inline">\(P(U &lt; a) = P(U &gt; b) = \dfrac{\alpha}{2}\)</span>.</p></li>
+<li><p><span class="alert">Caso unilaterial:</span> podemos tener un límite inferior o superior. Dependiendo del que nos interese y de la forma del pivote debemos encontrar un valor <span class="math inline">\(a\)</span> o <span class="math inline">\(b\)</span> que cumpla <span class="math inline">\(P(U \geq a) = 1-\alpha\)</span> o <span class="math inline">\(P(U \leq b) = 1 -\alpha\)</span>. Finalmente, como <span class="math inline">\(U\)</span> está en términos de la muestra aleatoria y del parámetro <span class="math inline">\(\theta\)</span> entonces despejamos <span class="math inline">\(\theta\)</span> dentro de la probabilidad y con esto obtenemos los límites inferiores y superiores.</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <p><strong>Nota:</strong></p>
 <ul>
-<li><p><strong>Para el caso bilateral:</strong> <span class="math inline">\(\left[ P(a \leq U \leq b) = 1-\alpha\right]\)</span>, <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> representan el percentil <span class="math inline">\(\alpha/2\)</span> y <span class="math inline">\(1-\alpha/2\)</span>, respectivamente, de la distribución de <span class="math inline">\(U\)</span>.</p></li>
-<li><p><strong>Para el caso unilateral:</strong> <span class="math inline">\(\left[ P(U \geq a) = 1-\alpha\right]\)</span> o <span class="math inline">\(\left[ P(U \leq b) = 1 -\alpha\right]\)</span>, <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> representan el percentil <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(1-\alpha\)</span>, respectivamente, de la distribución de <span class="math inline">\(U\)</span>.</p></li>
+<li><p><span class="alert">Para el caso bilateral:</span> <span class="math inline">\(\left[ P(a \leq U \leq b) = 1-\alpha\right]\)</span>, <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> representan el percentil <span class="math inline">\(\alpha/2\)</span> y <span class="math inline">\(1-\alpha/2\)</span>, respectivamente, de la distribución de <span class="math inline">\(U\)</span>.</p></li>
+<li><p><span class="alert">Para el caso unilateral:</span> <span class="math inline">\(\left[ P(U \geq a) = 1-\alpha\right]\)</span> o <span class="math inline">\(\left[ P(U \leq b) = 1 -\alpha\right]\)</span>, <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span> representan el percentil <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(1-\alpha\)</span>, respectivamente, de la distribución de <span class="math inline">\(U\)</span>.</p></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -624,7 +624,7 @@ P(a \leq U \leq b) &amp;= P\left( -\ln(0.95) \leq \dfrac{Y}{\beta} \leq -\ln(0.0
 </section>
 <section class="slide level2">
 
-<p>Denotando <span class="math inline">\(\chi^{2}_{p, 40}\)</span> como el cuantil <span class="math inline">\(p\)</span> de una distribución <span class="math inline">\(\chi^{2}\)</span> con <span class="math inline">\(40\)</span> grados de libertad, es decir, <span class="math display">\[P\left(\chi^{2}_{40}&lt; \chi^{2}_{p, 40} \right)=p\]</span>, tenemos los valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.</p>
+<p>Denotando <span class="math inline">\(\chi^{2}_{p, 40}\)</span> como el cuantil <span class="math inline">\(p\)</span> de una distribución <span class="math inline">\(\chi^{2}\)</span> con <span class="math inline">\(40\)</span> grados de libertad, es decir, <span class="math display">\[P\left(\chi^{2}_{40}&lt; \chi^{2}_{p, 40} \right)=p,\]</span> tenemos los valores <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.</p>
 <p>Podemos proceder a despejar <span class="math inline">\(\beta\)</span> de la probabilidad que acumula <span class="math inline">\(1-\alpha\)</span>: <span class="math display">\[P(a \leq V \leq b) = P\left( \chi^{2}_{\frac{\alpha}{2}, 40} \leq \frac{2T}{\beta} \leq \chi^{2}_{1-\frac{\alpha}{2}, 40} \right) =  P\left(  \frac{2T}{\chi^{2}_{1-\frac{\alpha}{2}, 40}} \leq \beta \leq \frac{2T}{\chi^{2}_{\frac{\alpha}{2}, 40}}  \right) = 1 -\alpha\]</span></p>
 <p>Por lo tanto, con una confianza de <span class="math inline">\((1-\alpha)\%\)</span> el intervalo <span class="math inline">\(\left[ \frac{2\sum_{j=1}^{20} X_{j}}{\chi^{2}_{1-\frac{\alpha}{2}, 40}}, \frac{2\sum_{j=1}^{20} X_{j}}{\chi^{2}_{\frac{\alpha}{2}, 40}}  \right]\)</span> incluye el valor de <span class="math inline">\(\beta\)</span>.</p>
 </section>
@@ -691,7 +691,7 @@ P(a \leq U \leq b) &amp;= P\left( -\ln(0.95) \leq \dfrac{Y}{\beta} \leq -\ln(0.0
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"right","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"wide","numbers":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
