@@ -424,18 +424,15 @@
 </ul></li>
 <li>Estadística no paramétrica
 <ul>
-<li>Bootstrap</li>
+<li>Estimación de densidad vía histograma y kernel.</li>
+<li>Bootstrap (Ahora)</li>
 </ul></li>
-</ul></li>
-<li>Ahora:
-<ul>
-<li>Estadística no paramétirca: Estimación de densidad kernel.</li>
 </ul></li>
 </ul>
 <div class="cell">
 <style type="text/css">
 code {
-  font-size: 1.5em;
+  font-size: 1.4em;
   /* or try font-size: xx-large; */
 }
 </style>
@@ -508,473 +505,142 @@ code {
 <pre><code>[1] 0.2 0.3 0.2 0.3 0.0</code></pre>
 </div>
 </div>
-<img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-4-1.png" width="288" class="r-stretch"></section>
-<section id="histograma" class="slide level2">
-<h2>Histograma</h2>
+<img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-4-1.png" width="480" class="r-stretch"></section>
+<section id="el-principio-de-bootstrap" class="slide level2">
+<h2>El Principio de Bootstrap</h2>
 <ul>
-<li>Para una muestra aleatoria <span class="math inline">\(X_1, \dots, X_n\)</span> de una población con función de densidad desconocida <span class="math inline">\(f\)</span>.</li>
-<li>Escoja <span class="math inline">\(x_0\)</span> y <span class="math inline">\(h\)</span> el ancho del segmento y calcule los límites de cada segmento: <span class="math display">\[B_j = \left[ x_0 + (j-1)h, x_0+jh \right],~~~ j \in \mathbb{Z}.\]</span></li>
-<li>Cuente cuántas observaciones caen en cada segmento <span class="math inline">\(j\)</span>, denotada por <span class="math inline">\(n_j\)</span>:</li>
-<li>Para cada segmento <span class="math inline">\(j\)</span>, calcule la frecuencia relativa</li>
+<li>Si queremos estimar un parámetro <span class="math inline">\(\theta\)</span>, por ejemplo, la media poblacional de <span class="math inline">\(P\)</span>, usualmente es posible obtenerlo por medio de la distribución <span class="math inline">\(P\)</span>:</li>
 </ul>
-<p><span class="math display">\[f_j = \frac{n_j}{nh}.\]</span> - Grafique el histograma usando barras de altura <span class="math inline">\(f_j\)</span> y ancho <span class="math inline">\(h\)</span>.</p>
-</section>
-<section class="slide level2">
-
-<p><strong>Ejemplo:</strong></p>
-<div class="columns">
-<div class="column add-space" style="width:44%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">1000</span>)</span>
-<span id="cb18-2"><a href=""></a>n <span class="ot">=</span> <span class="dv">50</span></span>
-<span id="cb18-3"><a href=""></a>x<span class="ot">=</span><span class="fu">rnorm</span>(n,<span class="dv">10</span>,<span class="dv">2</span>)</span>
-<span id="cb18-4"><a href=""></a><span class="fu">range</span>(x)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  5.906829 15.340143</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href=""></a>h <span class="ot">=</span> <span class="fl">2.5</span></span>
-<span id="cb20-2"><a href=""></a>B1 <span class="ot">=</span> <span class="fu">between</span>(x,<span class="fl">2.5</span>,<span class="dv">5</span>)</span>
-<span id="cb20-3"><a href=""></a>n_1 <span class="ot">=</span> <span class="fu">sum</span>(B1)</span>
-<span id="cb20-4"><a href=""></a>B2 <span class="ot">=</span> <span class="fu">between</span>(x,<span class="dv">5</span>,<span class="fl">7.5</span>)</span>
-<span id="cb20-5"><a href=""></a>n_2 <span class="ot">=</span> <span class="fu">sum</span>(B2)</span>
-<span id="cb20-6"><a href=""></a>B3 <span class="ot">=</span> <span class="fu">between</span>(x,<span class="fl">7.5</span>,<span class="dv">10</span>)</span>
-<span id="cb20-7"><a href=""></a>n_3 <span class="ot">=</span> <span class="fu">sum</span>(B3)</span>
-<span id="cb20-8"><a href=""></a>B4 <span class="ot">=</span> <span class="fu">between</span>(x,<span class="dv">10</span>,<span class="fl">12.5</span>)</span>
-<span id="cb20-9"><a href=""></a>n_4 <span class="ot">=</span> <span class="fu">sum</span>(B4)</span>
-<span id="cb20-10"><a href=""></a>B5 <span class="ot">=</span> <span class="fu">between</span>(x,<span class="fl">12.5</span>,<span class="dv">15</span>)</span>
-<span id="cb20-11"><a href=""></a>n_5 <span class="ot">=</span> <span class="fu">sum</span>(B5)</span>
-<span id="cb20-12"><a href=""></a>B6 <span class="ot">=</span> <span class="fu">between</span>(x,<span class="dv">15</span>,<span class="fl">17.5</span>)</span>
-<span id="cb20-13"><a href=""></a>n_6 <span class="ot">=</span> <span class="fu">sum</span>(B6)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:44%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a>n_j <span class="ot">=</span> <span class="fu">c</span>(n_1,n_2,n_3,n_4,n_5,n_6)</span>
-<span id="cb21-2"><a href=""></a>f_j <span class="ot">=</span> n_j<span class="sc">/</span>(n<span class="sc">*</span>h)</span>
-<span id="cb21-3"><a href=""></a><span class="fu">cbind</span>(n_j,f_j)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     n_j   f_j
-[1,]   0 0.000
-[2,]   7 0.056
-[3,]  20 0.160
-[4,]  20 0.160
-[5,]   2 0.016
-[6,]   1 0.008</code></pre>
-</div>
-</div>
-</div></div>
-</section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a>histograma <span class="ot">=</span> <span class="fu">hist</span>(x,<span class="at">breaks=</span><span class="fu">c</span>(<span class="fl">2.5</span>,<span class="dv">5</span>,<span class="fl">7.5</span>,<span class="dv">10</span>,<span class="fl">12.5</span>,<span class="dv">15</span>,<span class="fl">17.5</span>),<span class="at">freq=</span><span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href=""></a>histograma<span class="sc">$</span>counts</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  0  7 20 20  2  1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href=""></a>histograma<span class="sc">$</span>density</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.000 0.056 0.160 0.160 0.016 0.008</code></pre>
-</div>
-</div>
-<img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-7-1.png" width="288" class="r-stretch"></section>
-<section class="slide level2">
-
-<div class="columns">
-<div class="column add-space" style="width:60%;">
+<p><span class="math display">\[\mu = E(X)=\int x f(x)dx=\int x P(x) dx.\]</span> Es decir, en general <span class="math inline">\(\theta=T(P)\)</span>.</p>
 <ul>
-<li>Formalmente, el histograma es dado por <span class="math display">\[\hat{f}_h(x)=\frac{1}{nh} \sum_{i=1}^n \sum_{j} I(X_i \in B_j) I(x \in B_j),\]</span> donde <span class="math display">\[I(X_i \in B_j)=\left\lbrace \begin{aligned}
-              1 &amp; \text{,  si  } X_i \in B_j,  \\
-              0 &amp; \text{,  si  } X_i \notin B_j.
-\end{aligned} \right.\]</span></li>
-<li>Denote <span class="math inline">\(m_j\)</span> por el centro de cada segmento. Esto implica que la definición del histograma asigna para cada <span class="math inline">\(x\)</span> en el segmento <span class="math inline">\(B_j=\left[m_j-\frac{h}{2},m_j+\frac{h}{2} \right)\)</span> la misma estimación para <span class="math inline">\(f\)</span>, <span class="math inline">\(\hat{f}_h(m_j)\)</span>.</li>
-<li>Note que el área del histograma es <span class="math inline">\(1\)</span>.</li>
+<li><p>De la población <span class="math inline">\(P\)</span>, extraemos una muestra aleatoria: <span class="math inline">\(X_1,...,X_n\)</span>.</p></li>
+<li><p>Consideremos un estimador <span class="math inline">\(\hat{\theta}=s(X_1,...,X_n)\)</span> de <span class="math inline">\(\theta\)</span>.</p></li>
+<li><p>El objetivo de la inferencia estadística consiste en:</p></li>
 </ul>
-</div><div class="column" style="width:40%;">
-<p><strong>Ejemplo anterior:</strong></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-8-1.png" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href=""></a><span class="fu">sum</span>(histograma<span class="sc">$</span>density<span class="sc">*</span>h)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
-</div>
-</div>
-</div></div>
-</section>
-<section class="slide level2">
-
-<p><strong>Ejemplo:</strong> Variando <span class="math inline">\(h\)</span>, el tamaño del segmento</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href=""></a><span class="fu">set.seed</span>(<span class="dv">1000</span>)</span>
-<span id="cb30-2"><a href=""></a>n <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb30-3"><a href=""></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(n,<span class="dv">0</span>,<span class="dv">2</span>)</span>
-<span id="cb30-4"><a href=""></a>(<span class="at">h1 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="at">length.out=</span><span class="dv">17</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] -10.00  -8.75  -7.50  -6.25  -5.00  -3.75  -2.50  -1.25   0.00   1.25
-[11]   2.50   3.75   5.00   6.25   7.50   8.75  10.00</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href=""></a>(<span class="at">h2 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="at">length.out=</span><span class="dv">13</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] -10.000000  -8.333333  -6.666667  -5.000000  -3.333333  -1.666667
- [7]   0.000000   1.666667   3.333333   5.000000   6.666667   8.333333
-[13]  10.000000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href=""></a>(<span class="at">h3 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="at">length.out=</span><span class="dv">9</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -10.0  -7.5  -5.0  -2.5   0.0   2.5   5.0   7.5  10.0</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href=""></a>(<span class="at">h4 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>,<span class="dv">10</span>,<span class="at">length.out=</span><span class="dv">5</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -10  -5   0   5  10</code></pre>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">hist</span>(x,<span class="at">breaks=</span>h1,<span class="at">freq=</span><span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-11-1.png" width="288"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">hist</span>(x,<span class="at">breaks=</span>h2,<span class="at">freq=</span><span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-11-2.png" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a><span class="fu">hist</span>(x,<span class="at">breaks=</span>h3,<span class="at">freq=</span><span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-12-1.png" width="288"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href=""></a><span class="fu">hist</span>(x,<span class="at">breaks=</span>h4,<span class="at">freq=</span><span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-12-2.png" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="propiedades-estadística-del-histograma" class="slide level2">
-<h2>Propiedades estadística del histograma</h2>
+<ol type="1">
+<li>Usar un algorítmo <span class="math inline">\(s(X_1,...,X_n)\)</span> para obtener información relacionada a <span class="math inline">\(\theta\)</span>.</li>
+<li>Evaluar la variabilidad de ese algorítmo para ver su eficiencia.</li>
+</ol>
 <ul>
-<li><p>Si <span class="math inline">\(x_0=0\)</span>, entonces los segmentos están dados por <span class="math inline">\(B_j = \left[ (j-1)h, jh \right],~~~ j \in \mathbb{Z}\)</span>.</p></li>
-<li><p>Suponga que queremos estimar la densidad de un <span class="math inline">\(x \in B_j\)</span>. La estimación usando el histograma para estimar <span class="math inline">\(f(x)\)</span> es <span class="math display">\[\hat{f}_h(x)=\frac{1}{nh} \sum_{i=1}^n \sum_{j} I(X_i \in B_j) I(x \in B_j)=\frac{1}{nh} \sum_{i=1}^n I(X_i \in B_j)\]</span></p></li>
-<li><p><span class="math inline">\(\hat{f}_h(x)\)</span> es sesgado para estimar <span class="math inline">\(f(x)\)</span>.</p></li>
-<li><p>Calculemos la esperanza del estimador <span class="math inline">\(\hat{f}_h(x)\)</span>. <span class="math display">\[E\left(\hat{f}_h(x)\right)=\frac{1}{nh}\sum_{i=1}^n E\left\lbrace I(X_i \in B_j) \right\rbrace=\frac{1}{nh} n E\left\lbrace I(X_i \in B_j) \right\rbrace\]</span></p></li>
+<li>¿Qué pasaría si no es posible obtener la variancia teórica de <span class="math inline">\(\hat{\theta}\)</span>?</li>
+</ul>
+</section>
+<section id="dr.-bradley-efron" class="slide level2">
+<h2>Dr.&nbsp;Bradley Efron</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Cx5pgZCdDGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</section>
+<section id="el-principio-de-bootstrap-1" class="slide level2">
+<h2>El Principio de Bootstrap</h2>
+
+<img data-src="figs/BOOT.png" class="r-stretch"></section>
+<section class="slide level2">
+
+<p><strong>Definición 5.1:</strong> Una muestra aleatoria de tamaño <span class="math inline">\(n\)</span>, <span class="math inline">\(X_1^*,...,X_n^*\)</span> extraída de la distribución empírica <span class="math inline">\(\hat{P}\)</span>, es denominada como una <span class="alert">muestra de bootstrap</span>.</p>
+<p><strong>Observación</strong>:</p>
+<ul>
+<li><p>Note que esto significa que las <span class="math inline">\(n\)</span> observaciones se selecciona <strong>con reemplazo</strong> de la distribución <span class="math inline">\(\hat{P}\)</span>, o sea los datos originales <span class="math inline">\(\left\lbrace X_1,...,X_n \right\rbrace\)</span>.</p></li>
+<li><p>Por eso la muestra de bootstrap también se le conoce como muestra remuestreada.</p></li>
+<li><p>Esto nos lleva al siguiente proceso:</p>
+<ol type="1">
+<li><p><span class="math inline">\(X = (X_1, \dots, X_n)^T\)</span> es una muestra aleatoria de una distribución <span class="math inline">\(P\)</span>.</p></li>
+<li><p>Seleccione <span class="math inline">\(i_1, \dots, i_n\)</span> independientemente de una distribución uniforme en <span class="math inline">\({1, \dots, n}\)</span>.</p></li>
+<li><p>Ahora haga <span class="math inline">\(X_{j}^{*} = X_{i_{j}}\)</span> y <span class="math inline">\(X^* = (X^*_1, \dots, X^*_n)^T\)</span>.</p></li>
+</ol></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<ul>
-<li>Note que <span class="math inline">\(I(X_i \in B_j)\)</span> es una variable aleatoria definida como</li>
-</ul>
-<p><span class="math display">\[I(X_i \in B_j)= \begin{cases} 1, \text{ con probabilidad } \int_{(j-1)h}^{jh} f(u) du, \\
-0,\text{ con probabilidad } 1-\int_{(j-1)h}^{jh} f(u) du\end{cases}\]</span></p>
-<ul>
-<li>Entonces, es un ensayo de Bernoulli y su esperanza es: <span class="math display">\[E\left\lbrace I(X_i \in B_j) \right\rbrace=\int_{(j-1)h}^{jh} f(u) du.\]</span></li>
-<li>Finalmente, tenemos que <span class="math display">\[E\left(\hat{f}_h(x)\right)=\frac{1}{nh} n E\left\lbrace I(X_i \in B_j) \right\rbrace=\frac{1}{h}  \int_{(j-1)h}^{jh} f(u) du.\]</span></li>
-<li><strong>El sesgo</strong> es dado por</li>
-</ul>
-<p><span class="math display">\[B\left(\hat{f}_h(x)\right)=E\left(\hat{f}_h(x)\right)-f(x)= \frac{1}{h}  \int_{(j-1)h}^{jh} f(u) du - f(x).\]</span></p>
+<p>El procedimiento consiste en:</p>
+<ol type="1">
+<li>Escoja B muestras bootstrap independientes <span class="math inline">\(X^{*(1)}, \dots, X^{*(B)}\)</span> de <span class="math inline">\(\hat{P}\)</span>: <span class="math inline">\(X_1^{*(b)}, \dots, X^{*(b)}_n \overset{iid}{\sim} \hat{P}\)</span>, para <span class="math inline">\(b = 1, \dots, B\)</span>.</li>
+<li>Evalúe las repeticiones de bootstrap: <span class="math inline">\(\hat{\theta}^{*(b)}=s(X^{*(b)})\)</span>.</li>
+<li>Estime la distribución muestral de <span class="math inline">\(\theta\)</span> con la distribución empírica de las repeticiones bootstrap: <span class="math inline">\(\hat{\theta}^{*(1)}, \dots,\hat{\theta}^{*(B)}\)</span>:</li>
+</ol>
+<p><span class="math display">\[\hat{P}\left(\hat{\theta}(A)\right) = \frac{1}{B}\sum_{b=1}^{B} 1_A\left(\hat{\theta}^{*(b)}\right)\]</span></p>
+<p>para conjuntos apropiados de <span class="math inline">\(A \subseteq \mathbb{R}^p\)</span> (si <span class="math inline">\(\hat{\theta} \in \mathbb{R}^p\)</span>).</p>
 </section>
 <section class="slide level2">
 
 <ul>
-<li>Usando aproximación de Taylor de <span class="math inline">\(f(x) - f(u)\)</span> alrededor de <span class="math inline">\(m_j=\left(j-\frac{1}{2}\right) h\)</span> de <span class="math inline">\(B_j\)</span>, tenemos <span class="math inline">\(f(x) - f(u) \approx f'(m_j)\left[m_j-x\right]\)</span>. Por lo tanto,</li>
+<li>En otras palabras, la idea es obtener <span class="math inline">\(B\)</span> réplicas de muestras de Bootstrap: <span class="math display">\[X^{*(1)}=\left[ X_1^{*(1)},...,X_n^{*(1)} \right] ~~~~\rightarrow  \hat{\theta}^{*(1)}=s\left(X^{*(1)}\right)\]</span> <span class="math display">\[X^{*(2)}=\left[ X_1^{*(2)},...,X_n^{*(2)}\right]~~~~\rightarrow  \hat{\theta}^{*(2)}=s\left(X^{*(2)}\right)\]</span> <span class="math display">\[\vdots\]</span> <span class="math display">\[X^{*(B)}=\left[ X_1^{*(B)},...,X_n^{*(B)}\right]~~~~\rightarrow  \hat{\theta}^{*(B)}=s\left(X^{*(B)}\right)\]</span> y obtener la distribución empírica de <span class="math inline">\(\hat{\theta}^*\)</span> como una aproximación de la distribución muestral de <span class="math inline">\(\hat{\theta}\)</span>:</li>
 </ul>
-<p><span class="math display">\[B\left(\hat{f}_h(x)\right)=\frac{1}{h}  \int_{(j-1)h}^{jh} f(u) du - f(x)= \frac{1}{h}  \int_{(j-1)h}^{jh} f(u) - f(x)du \approx f'(m_j)\left[m_j-x\right].\]</span> <strong>Observaciones:</strong></p>
+<p><span class="math display">\[P(\hat{\theta} \in A) = \hat{P}(\hat{\theta}^{*} \in A).\]</span></p>
 <ul>
-<li>El sesgo es casi cero cuando <span class="math inline">\(x=m_j\)</span>, o sea en el punto medio de <span class="math inline">\(B_j\)</span>.</li>
-<li>El sesgo depende de la pendiente de <span class="math inline">\(f\)</span>.</li>
+<li>Generalmente, nos interesa solamente una medida de esa distribución. Por ejemplo, su variancia.</li>
+</ul>
+</section>
+<section id="bootstrap-para-calcular-errores-estándar" class="slide level2">
+<h2>Bootstrap para calcular errores estándar</h2>
+<p>Sea <span class="math inline">\(\hat{\theta}\)</span> un estimador de <span class="math inline">\(\theta\)</span> y suponga que queremos conocer el error estándar de <span class="math inline">\(\hat{\theta}\)</span>. Un error estándar estimado de bootstrap se puede obtener con el siguiente algoritmo:</p>
+<ul>
+<li>Escoja B muestras bootstrap independientes <span class="math inline">\(X^{*(1)}, \dots, X^{*(B)}\)</span> de <span class="math inline">\(\hat{P}\)</span>: <span class="math inline">\(X_1^{*(b)}, \dots, X^{*(b)}_n \sim_{iid} \hat{P}\)</span> para <span class="math inline">\(b = 1, \dots, B\)</span>.</li>
+<li>Evalúe las repeticiones de bootstrap: <span class="math inline">\(\hat{\theta}^{*(b)}=s(X^{*(b)})\)</span>.</li>
+<li>Estime los errores estándares con la desviación estándar de las <span class="math inline">\(B\)</span> repeticiones:</li>
+</ul>
+<p><span class="math display">\[\widehat{\operatorname{ee}}_{boot} = \sqrt{\frac{1}{B-1}\sum_{b=1}^{B}\left(\hat{\theta}^{*(b)}-\hat{\theta}^{*(.)}\right)^2}\]</span></p>
+<p>donde <span class="math inline">\(\hat{\theta}^{*(.)} = \frac{1}{B}\sum\limits_{b=1}^{B}\hat{\theta}^{*(b)}\)</span>.</p>
+</section>
+<section id="bootstrap-para-calcular-el-sesgo" class="slide level2">
+<h2>Bootstrap para calcular el sesgo</h2>
+<p>Suponga que queremos estimar un parámetro <span class="math inline">\(\theta = t(P)\)</span> con el estadístico <span class="math inline">\(\hat{\theta}= s(X)\)</span>. El sesgo de un estimador <span class="math inline">\(\hat{\theta}\)</span> está definido como:</p>
+<p><span class="math display">\[\operatorname{sesgo}(\hat{\theta})= E(\hat{\theta})-\theta\]</span></p>
+<p>Si sustituimos <span class="math inline">\(P\)</span> por la distribución empírica <span class="math inline">\(\hat{P}\)</span>, entonces obtenemos el estimador bootstrap del sesgo:</p>
+<p><span class="math display">\[\widehat{\operatorname{sesgo}}(\hat{\theta})= \operatorname{sesgo}^*(\hat{\theta}^*) =  E(\hat{\theta}^*)-\theta^*\]</span> donde <span class="math inline">\(\theta^* = T(\hat{P})\)</span>. Note que <span class="math inline">\(\theta=T(P)\)</span> y <span class="math inline">\(\theta^*\)</span> pueden ser diferentes.</p>
+</section>
+<section id="bootstrap-para-calcular-el-intervalo-de-confianza" class="slide level2">
+<h2>Bootstrap para calcular el intervalo de confianza</h2>
+<ul>
+<li>A partir de las repeticiones bootstrap <span class="math inline">\(\hat{\theta}^{*(1)}, \dots,\hat{\theta}^{*(B)}\)</span>, podemos estimar la distribución muestral de <span class="math inline">\(\hat{\theta}\)</span> (y calcular el error estándar del estimador).</li>
+<li>Como consecuencia, podemos construir intervalos de confianza para <span class="math inline">\(\theta\)</span>. Hay cuatro opciones:
+<ol type="1">
+<li>IC estándar,</li>
+<li>IC bootstrap t,</li>
+<li>IC percentiles,</li>
+<li>IC percentiles corregido por sesgo.</li>
+</ol></li>
+</ul>
+<ol type="1">
+<li><strong>IC estándar:</strong> Utilizamos el resultado del TLC para decir que <span class="math inline">\(\hat{\theta}\)</span> es distribuido aproximadamente normal con media <span class="math inline">\(\theta\)</span> y variancia <span class="math inline">\(\operatorname{ee}(\hat{\theta})^2\)</span>. Entonces, un IC <span class="math inline">\((1-\alpha)\)</span> aproximado para <span class="math inline">\(\theta\)</span> está dado por:</li>
+</ol>
+<p><span class="math display">\[\hat{\theta} \pm z_{1-\alpha/2} \hat{\operatorname{ee}}_{boot}(\hat{\theta})\]</span></p>
+</section>
+<section class="slide level2">
+
+<ol start="2" type="1">
+<li><strong>IC bootstrap t:</strong></li>
+</ol>
+<ul>
+<li><p>De las muestras bootstrap <span class="math inline">\(X^{*(b)}\)</span>, <span class="math inline">\(b=1,...,B\)</span>, se calcula: <span class="math display">\[T^{*(b)}=\frac{\hat{\theta}^{*(b)}-\hat{\theta}}{\hat{\operatorname{ee}}\left(
+\hat{\theta}^{*(b)}\right)},\]</span> donde <span class="math inline">\(\hat{\theta}^{*(b)}\)</span> y <span class="math inline">\(\widehat{\operatorname{ee}}\left(\hat{\theta}^{*(b)}\right)\)</span> es el estimador y su error estándar, respectivamente, calculado con la muestra de boostrap <span class="math inline">\(b\)</span>. Note que su error estándar no está disponible (se debe hacer otro bootstrap para aproximarlo).</p></li>
+<li><p>De los valores <span class="math inline">\(T^{*(b)}\)</span>, podemos estimar el valor crítico <span class="math inline">\(t_{\alpha/2}\)</span> como <span class="math inline">\(\hat{t}_{\alpha/2}\)</span> tal que: <span class="math display">\[\frac{1}{B} \sum_{b=1}^{B} 1 {[ T^{*(b)} \leq \hat{t}_{\alpha/2} ]} \approx \alpha/2.\]</span> Entonces: <span class="math display">\[\left[ \hat{\theta} + \hat{t}_{\alpha/2} \hat{\operatorname{ee}}_{boot}(\hat{\theta}), \hat{\theta} + \hat{t}_{1-\alpha/2} \hat{\operatorname{ee}}_{boot}(\hat{\theta}) \right]\]</span></p></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<ul>
-<li>La variancia del estimador <span class="math inline">\(\hat{f}_h(x)\)</span>: <span class="math display">\[Var\left(\hat{f}_h(x)\right)=Var \left\lbrace \frac{1}{nh}\sum_{i=1}^n  I(X_i \in B_j) \right\rbrace =\frac{1}{n^2h^2} Var \left\lbrace \sum_{i=1}^n  I(X_i \in B_j) \right\rbrace\]</span> <span class="math display">\[=\frac{1}{n^2h^2} \left[\int_{(j-1)h}^{jh} f(u) du\right] \left[1-\int_{(j-1)h}^{jh} f(u) du\right] \]</span> Se puede mostrar que: <span class="math display">\[Var\left(\hat{f}_h(x)\right) \approx  \frac{1}{nh}f(x)\]</span></li>
-<li>Note que la variancia del estimador decrece cuando <span class="math inline">\(nh\)</span> crece, mientras que el sesgo del estimador decrece a cero si <span class="math inline">\(h\)</span> decrece.</li>
-</ul>
+<ol start="3" type="1">
+<li><strong>IC percentiles:</strong> Si solo queremos utilizar los cuantiles empíricos:</li>
+</ol>
+<p><span class="math display">\[\hat{P}^*\left(\hat{\theta}^*\leq \hat{\theta}_{inf}\right)=\frac{1}{B} \sum_{b=1}^{B}1\left[\hat{\theta}^{*(b)} \leq \hat{\theta}_{inf}\right]\approx \alpha/2\]</span></p>
+<p><span class="math display">\[\hat{P}^*(\hat{\theta}^* \geq \hat{\theta}_{sup}) = \frac{1}{B} \sum_{b=1}^{B} 1\left[\hat{\theta}^{*(b)} \geq \hat{\theta}_{sup}\right] \approx \alpha/2\]</span></p>
+<ol start="4" type="1">
+<li><strong>IC percentiles corregido por sesgo:</strong> La opción anterior asume que el área debajo de la curva en las dos colas es igual. Si el estimador <span class="math inline">\(\hat{\theta}\)</span> no es la mediana de la distribución bootstrap, entonces esta condición no se cumple. En este caso debemos corregirlo, y hay varias opciones que no serán vistas en esta ocasión.</li>
+</ol>
 </section>
-<section class="slide level2">
-
-<ul>
-<li><p>Recuerden que el <strong>error cuadrático medio</strong> es: <span class="math display">\[ECM\left(\hat{f}_h(x)\right)= Var\left(\hat{f}_h(x)\right)+\left[B\left(\hat{f}_h(x)\right)\right]^2.\]</span></p></li>
-<li><p>Para poder minimizar <span class="math inline">\(ECM\left(\hat{f}_h(x)\right)\)</span> se debe encontrar un equilibrio de <span class="math inline">\(h\)</span>, pero esto sirve solamente para un <span class="math inline">\(x\)</span> dado.</p></li>
-<li><p>Existe el <strong>error cuadrático medio integrado (ECMI)</strong> definido como <span class="math display">\[ECMI\left(\hat{f}_h(x)\right)=E\left\lbrace\int_{-\infty}^{\infty} \left[\hat{f}_h(x) - f(x) \right]^2 dx\right\rbrace\]</span> <span class="math display">\[=\int_{-\infty}^{\infty} E\left[\left(\hat{f}_h(x) - f(x) \right)^2 \right] dx=\int_{-\infty}^{\infty} ECM\left(\hat{f}_h(x)\right) dx.\]</span></p></li>
-<li><p>Se puede comprobar que el óptimo ancho del segmento es: <span class="math display">\[h_{opt} \sim n^{-1/3}.\]</span></p></li>
-</ul>
-</section>
-<section id="estimación-de-densidad-kernel" class="slide level2">
-<h2>Estimación de densidad Kernel</h2>
-<ul>
-<li><p>Idea básica del histograma para estimar <span class="math inline">\(f(x)\)</span> es: <span class="math display">\[\hat{f}_h(x) = \frac{\#\left\lbrace \text{observaciones que caen dentro del intervalo que contiene a }x \right\rbrace}{n \cdot (\text{ancho del intervalo})},\]</span> donde el intervalo <span class="math inline">\(B_i\)</span> está centrado en <span class="math inline">\(m_j\)</span>.</p></li>
-<li><p>La idea de la estimación de densidad por kernel es ligeramente diferente:</p></li>
-</ul>
-<p><span class="math display">\[\hat{f}_k(x) = \frac{\#\left\lbrace \text{observaciones que caen dentro del intervalo que está alrededor de }x \right\rbrace}{n \cdot (\text{ancho del intervalo})}.\]</span></p>
-<ul>
-<li>Esto se puede reescribir como: <span class="math display">\[\hat{f}_k(x) = \frac{1}{n \cdot 2h} \#\left\lbrace X_i \in [x-h,x+h)] \right\rbrace\]</span></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Si definimos <strong>la función kernel uniforme</strong>:</li>
-</ul>
-<p><span class="math display">\[K(u)=\frac{1}{2} I(|u|\leq 1),\]</span> donde <span class="math inline">\(u=(x-X_i)/h\)</span>.</p>
-<ul>
-<li>Podemos escribir ese estimador como:</li>
-</ul>
-<p><span class="math display">\[\begin{align}
-\hat{f}_k(x) &amp;= \frac{1}{nh} \sum_{i=1}^n K\left( \frac{x-X_i}{h} \right) \\
-&amp;=\frac{1}{nh} \sum_{i=1}^n \frac{1}{2} I\left(\left|\frac{x-X_i}{h}\right|\leq 1\right).
-\end{align}\]</span></p>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>¿Qué hace la función kernel uniforme?</li>
-</ul>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-13-1.png" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section class="slide level2">
-
-<p><strong>Ejemplo:</strong> Para una muestra de una población con distribución desconocida: <span class="math inline">\((1,3,3.3,7,6.5,9)\)</span>.</p>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-15-1.png" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-16-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="diferentes-kernels" class="slide level2">
-<h2>Diferentes kernels</h2>
-<ul>
-<li><p>Existe una variedad de funciones de kernels.</p>
-<ul>
-<li>Uniforme: <span class="math inline">\(K(u)=\frac{1}{2} I(|u|\leq 1),\)</span></li>
-<li>Triangular: <span class="math inline">\(K(u)= (1-|u|) I(|u|\leq 1),\)</span></li>
-<li>Gaussiano: <span class="math inline">\(K(u)=\frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}u^2}\)</span></li>
-</ul></li>
-</ul>
-<p>Y otras como Epanechnikov, cudrática (biweight), triweight, coseno, etc.</p>
-<div class="columns">
-<div class="column" style="width:30%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-17-1.png" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:30%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-18-1.png" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:30%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-19-1.png" width="288"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section class="slide level2">
-
-<p><strong>Ejemplo:</strong> Para una muestra de una población con distribución desconocida: <span class="math inline">\((1,3,3.3,7,6.5,9)\)</span>, estime la densidad usando el kernel gaussiano y <span class="math inline">\(h=0.5\)</span>.</p>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-21-1.png" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-22-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section class="slide level2">
-
-<p><strong>Ejemplo:</strong> Para una muestra de una población con distribución desconocida: <span class="math inline">\((1,3,3.3,7,6.5,9)\)</span>, estime la densidad usando el kernel triangular y <span class="math inline">\(h=0.5\)</span>.</p>
-<div class="columns">
-<div class="column" style="width:45%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-24-1.png" width="384"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:55%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-25-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="variando-h" class="slide level2">
-<h2>Variando <span class="math inline">\(h\)</span></h2>
-<ul>
-<li>Con <span class="math inline">\(h=0.5,1,1.5,2\)</span>, lo que hace es suavizar más o menos la densidad estimada.</li>
-</ul>
-
-<img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-26-1.png" width="576" class="r-stretch"></section>
-<section id="en-r" class="slide level2">
-<h2>En R</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="fl">3.3</span>,<span class="dv">7</span>,<span class="fl">6.5</span>,<span class="dv">9</span>)</span>
-<span id="cb42-2"><a href=""></a>kde<span class="ot">&lt;-</span><span class="fu">density</span>(x,<span class="at">kernel=</span><span class="st">"gaussian"</span>,<span class="at">bw=</span><span class="fl">0.5</span>)</span>
-<span id="cb42-3"><a href=""></a><span class="fu">plot</span>(kde)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-27-1.png" width="576" class="r-stretch"></section>
-<section class="slide level2">
-
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href=""></a>x<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="fl">3.3</span>,<span class="dv">7</span>,<span class="fl">6.5</span>,<span class="dv">9</span>)</span>
-<span id="cb43-2"><a href=""></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(x)</span>
-<span id="cb43-3"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb43-4"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">kernel=</span><span class="st">"gaussian"</span>,<span class="at">bw=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb43-5"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-28-1.png" width="576" class="r-stretch"></section>
-<section id="propiedades-estadística-del-estimador-de-densidad-basado-en-kernels" class="slide level2">
-<h2>Propiedades estadística del estimador de densidad basado en kernels</h2>
-<ul>
-<li><p>Se puede comprobar que el estimador <span class="math inline">\(\hat{f}_k(x)\)</span> es sesgado para estimar <span class="math inline">\(f(x)\)</span>.</p></li>
-<li><p>No entraremos en detalles sobre los cálculos del sesgo, variancia y el ECM y ECMI.</p></li>
-<li><p>Se puede comprobar que el óptimo ancho del segmento es: <span class="math display">\[h_{opt} \sim n^{-1/5}.\]</span></p></li>
-</ul>
-</section>
-<section id="ejemplo-con-la-distribución-poisson" class="slide level2">
-<h2>Ejemplo con la distribución Poisson</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a>x<span class="ot">&lt;-</span><span class="fu">rpois</span>(<span class="at">n=</span><span class="dv">100</span>, <span class="at">lambda=</span> <span class="dv">10</span>)</span>
-<span id="cb44-2"><a href=""></a>df<span class="ot">&lt;-</span><span class="fu">data.frame</span>(x)</span>
-<span id="cb44-3"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb44-4"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb44-5"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-29-1.png" width="576" class="r-stretch"></section>
-<section class="slide level2">
-
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb45-2"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">kernel=</span><span class="st">"gaussian"</span>,<span class="at">bw=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb45-3"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-30-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href=""></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span></span>
-<span id="cb46-2"><a href=""></a>  <span class="fu">geom_density</span>(<span class="at">kernel=</span><span class="st">"gaussian"</span>,<span class="at">bw=</span><span class="fl">1.5</span>) <span class="sc">+</span></span>
-<span id="cb46-3"><a href=""></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="XS3310-I25_17_files/figure-revealjs/unnamed-chunk-31-1.png" width="576"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
+<section id="lab05a" class="slide level2">
+<h2>Lab05a</h2>
+<p><a href="lab05a.html">Lab05a</a></p>
 </section>
 <section id="qué-discutimos-hoy" class="slide level2">
 <h2>¿Qué discutimos hoy?</h2>
 <ul>
-<li>Histograma</li>
-<li>Estimación de densidad por kernels.</li>
+<li>Repaso:
+<ul>
+<li>modelos estadísticos</li>
+<li>Estadística paramétrica y no paramétrica</li>
+</ul></li>
+<li>Distribución empírica</li>
+<li>Bootstrap</li>
 </ul>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
@@ -1012,7 +678,7 @@ code {
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"right","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true,"width":"wide","numbers":true},
 'smaller': false,
  
         // Display controls in the bottom right corner
