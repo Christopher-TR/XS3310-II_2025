@@ -38,5 +38,5 @@ y ejercicios</a>
 |  | [Clase13](XS3310-I25_13.html) |  |
 |  | [Clase14](XS3310-I25_14.html) | [Lab Tema 4a](lab04a.html) |
 |  | [Clase15](XS3310-I25_15.html) | [Lab Tema 4b](lab04b.html) |
-| 5\. Estad. no paramétrica | [Clase16](XS3310-I25_16.html) | [Lab Tema 5a](./lab05a.html) |
-|  | [Clase17](XS3310-I25_17.html) |  |
+| 5\. Estad. no paramétrica | [Clase16](XS3310-I25_16.html) |  |
+|  | [Clase17](XS3310-I25_17.html) | [Lab Tema 5](./lab05a.html) |
