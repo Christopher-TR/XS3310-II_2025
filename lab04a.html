@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -64,14 +64,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="lab04a_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="lab04a_files/libs/quarto-html/anchor.min.js"></script>
 <link href="lab04a_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lab04a_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="lab04a_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="lab04a_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="lab04a_files/libs/quarto-html/quarto-syntax-highlighting-dark-b53751a350365c71b6c909e95f209ed1.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="lab04a_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="lab04a_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="lab04a_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="lab04a_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="lab04a_files/libs/bootstrap/bootstrap-0b3b9638000aa634054a1a0e4b24ad6b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="lab04a_files/libs/bootstrap/bootstrap-dark-884304b898dedb0844cb31da4b7b6464.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -122,7 +122,7 @@ window.Quarto = {
   </ul>
 </nav>
 </div>
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
 </div>
 <main class="content" id="quarto-document-content">
 
@@ -175,7 +175,7 @@ window.Quarto = {
 <h2 data-number="2.1" class="anchored" data-anchor-id="encuentre-el-contraste-uniformemente-más-potente-cump-de-tamaño-alpha_0-para-contrastar-estas-hipótesis."><span class="header-section-number">2.1</span> Encuentre el contraste uniformemente más potente (CUMP) de tamaño <span class="math inline">\(\alpha_0\)</span> para contrastar estas hipótesis.</h2>
 <p>Tenemos dos formas de resolver de encontrar el CUMP de tamaño <span class="math inline">\(\alpha_0\)</span>.</p>
 <ol type="1">
-<li>Replanteando la hipótesis alternativa como <span class="math inline">\(H_1: \beta=\beta_1\)</span> tal que <span class="math inline">\(\beta_1&gt;\beta0\)</span>, tenemos dos hipótesis simples. Por lo que se puede aplicar el lema de Neymann-Pearson. De esta forma, el contraste más potente consiste en una región crítica de la forma:</li>
+<li>Replanteando la hipótesis alternativa como <span class="math inline">\(H_1: \beta=\beta_1\)</span> tal que <span class="math inline">\(\beta_1 &gt; \beta_0\)</span>, tenemos dos hipótesis simples. Por lo que se puede aplicar el lema de Neymann-Pearson. De esta forma, el contraste más potente consiste en una región crítica de la forma:</li>
 </ol>
 <p><span class="math display">\[RC= \left\lbrace X| \frac{\mathcal{L}(\beta_0)}{\mathcal{L}(\beta_1)}&lt;k \right\rbrace.\]</span> Es decir, la región crítica está dada por <span class="math display">\[\frac{\mathcal{L}(\beta_0)}{\mathcal{L}(\beta_1)} = \frac{\frac{1}{\beta_0^n} e^{-\frac{1}{\beta_0}\sum{X_i}}}{ \frac{1}{\beta_1^n} e^{-\frac{1}{\beta_1}\sum{X_i}}}= \left(\frac{\beta_1}{\beta_0}\right)^n e^{-\sum{X_i}\left(\frac{1}{\beta_0}-\frac{1}{\beta_1}\right)}&lt;k.\]</span></p>
 <p>Se puede despejar el estadístico <span class="math inline">\(T=\sum{X_i}\)</span> y concluir que la región crítica está dada por: <span class="math display">\[\sum{X_i}&gt;\frac{\ln\left[k\left(\frac{\beta_0}{\beta_1}\right)^n\right]}{-\left(\frac{1}{\beta_0}-\frac{1}{\beta_1}\right)}=k'.\]</span> Luego, para asegurar que el contraste tenga tamaño <span class="math inline">\(\alpha_0\)</span>, se procede calcular el valor de <span class="math inline">\(k'\)</span> por medio de la función potencia.</p>
@@ -451,18 +451,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -494,7 +483,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -502,7 +511,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -599,7 +608,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
