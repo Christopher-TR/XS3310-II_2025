@@ -1,7 +1,6 @@
-**Profesores:**
+**Profesor:**
 
--   **Grupo 1:** Shu Wei Chou Chen (<shuwei.chou@ucr.ac.cr>)
--   **Grupo 2:** Christopher Torres Rojas
+-   **Grupo 1:** Christopher Torres Rojas
     (<christopher.torres@ucr.ac.cr>)
 
 ## DESCRIPCION:
