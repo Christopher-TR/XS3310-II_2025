@@ -1,0 +1,160 @@
+---
+title: "Métodos de Conteo^2^"
+subtitle: " [XS-0122 Modelos Probabilísticos II Semestre 2025](https://christopher-tr.github.io/XS3310-I25)"
+format: clean-revealjs
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+author:
+  - name: Christopher Torres Rojas
+    url: https://christopher-tr.github.io/
+    email: christopher.torres@ucr.ac.cr
+    affiliations: 
+    - name: Escuela de Estadística, Universidad de Costa Rica
+      url: https://www.estadistica.ucr.ac.cr/
+#date: last-modified
+lang: es  # español
+---
+
+## Probabilidad y Combinatoria
+
+A un jugador se le dan 13 cartas tomadas al azar de una baraja de 52 cartas. Encuentre la probabilidad de que el jugador tenga:
+
+a\) Solamente un as **(A)**:
+
+$\left|A\right| = \binom{4}{1}\cdot \binom{48}{12} \quad \text{ y }\quad\left|\Omega\right| = \binom{52}{13}$
+
+$P(A) = \frac{\binom{4}{1}\cdot \binom{48}{12}}{\binom{52}{13}} \approx 0.4388$
+
+b\) Al menos un as **(B)**:
+
+Sugerencia 1: Considere $P(B)=1-P(B^c)$
+
+Sugerencia 2: Considere $B = B_1 \cup B_2 \cup B_3 \cup B_4$, donde:
+
+$B_1=\text{Tener solo un As,} \quad B_2=\text{Tener dos Ases,}$
+
+$B_3=\text{Tener solomente tres Ases,}  \quad B_4=\text{Tener solamente cuatro Ases}$
+
+## Ejercicios:
+
+A un jugador se le dan 13 cartas tomadas al azar de una baraja de 52 cartas. Encuentre la probabilidad de que el jugador tenga:
+
+c\) El as de corazones **(C)**:
+
+$\left|C\right| = \binom{1}{1}\cdot \binom{51}{12}$
+
+$\left|\Omega\right| = \binom{52}{13}$
+
+$P(C) = 0.25$
+
+d\) Solamente un as y éste debe ser de corazones:
+
+## Ejercicios:
+
+Considere un lote de 50 artículos de los cuales 5 son defectuosos, si se extraen 4 artículos al azar y sin sustitución
+
+a\) ¿Cuál es la probabilidad de que exactamente 2 sean defectuosos?
+
+$\left|A\right| = \binom{5}{2}\cdot \binom{45}{2} \quad \text{ y }\quad\left|\Omega\right| = \binom{50}{4}$
+
+$P(A) = \frac{\binom{5}{2}\cdot \binom{45}{2}}{\binom{50}{4}} \approx 0.043$
+
+b\) ¿Cuál es la probabilidad de que al menos 2 sean defectuosos?
+
+## Ejercicios:
+
+a\) De cuantas maneras se pueden sentar 5 amigos en una banca de 5 asientos.
+
+b\) De cuantas maneras se pueden sentar 6 amigos en una banca de 5 asientos, pero Marta y Sara tienen que estar sentadas a la par.
+
+$\left|B\right| = 2P2\cdot 4P3 \cdot4$
+
+```{r, echo=FALSE, out.width="100%", fig.cap="Explicación Gráfica"}
+knitr::include_graphics("images/PruebaPerm1.png")
+```
+
+## Ejercicios:
+
+a\) ¿Cuántas palabras distintas puedo formar con la palabra REMEMBER (sin importar si la palabra tiene algún significado)?
+
+b\) ¿Cuántas palabras distintas puedo formar con la palabra REMEMBER si quiero que empiecen con R?
+
+$\left|A\right| = \binom{2}{2}\cdot \binom{6}{3\cdot2\cdot1}$
+
+c\) ¿Cuántas palabras distintas puedo formar con la palabra REMEMBER si quiero que las “M” estén juntas?
+
+Sugerencia: similar al ejercicio 2.b de la diapositiva anterior, pero usando permutaciones con elementos repetidos.
+
+## Ejercicios:
+
+a\) \*Un cajón contiene 10 calcetines distribuidos en 5 colores diferentes, con exactamente 2 calcetines de cada color. Si se seleccionan 4 calcetines al azar y sin reemplazo, determine la probabilidad de que al menos dos de ellos sean del mismo color.
+
+Sugerencia: $P(A) = 1-P(A)$
+
+b\) ¿Cuántos nu´meros de seis cifras tienen al menos una cifra par?
+
+Sugerencia $\left|A \right| = \left|S \right|-\left|A^c \right|$
+
+## Ejercicios:
+
+Cuatro jugadores de tenis de igual habilidad (A, B, C, D) van a competir en un torneo eliminatorio (el que pierde un juego es eliminado). Calcule la probabilidad de que los competidores A y B se lleguen a enfrentar en algún momento del torneo. Al inicio del torneo los rivales se escogen al azar, luego los ganadores se enfrentan en la final (No hay duelo por el tercer lugar)\
+\
+Considere $X = \text{Enfrentarse en la semifinal y sea } Y = \text{Enfrentarse en la final}$
+
+$X = \text{Enfrentarse en el primer partido } \cup \text{ Enfrentarse en el segundo partido}$$P(X) = \frac{\binom{2}{2}\cdot \binom{2}{2}}{ \binom{4}{2}\cdot\binom{2}{2}} + \frac{\binom{2}{2}\cdot \binom{2}{2}}{ \binom{4}{2}\cdot\binom{2}{2}} = \frac{1}{6}+\frac{1}{6}=\frac{1}{3}$
+
+$Y = \text{No Enfrentase en la semifinal } \cap \text{ Que Tanto A y B ganen su partido}$$P(Y) = [1-P(X)]\cdot\frac{1}{2}\cdot\frac{1}{2} = \frac{2}{3} \cdot\frac{1}{2}\cdot\frac{1}{2} = \frac{1}{6}$
+
+Por último, observe que la probabilidad de que tanto A y B se enfrenten es igual:$P(X)+P(Y) = \frac{1}{3}+\frac{1}{6} = \frac{1}{2} = 0.50$
+
+## Ejercicios:
+
+Demostrar las siguientes igualdades:
+
+a)  $\binom{n}{r} = \frac{n-r+1}{r} \cdot \binom{n}{r-1}$
+
+b)  $\binom{n}{r} = \frac{n}{n-r} \cdot \binom{n-1}{r}$
+
+c)  $n \cdot \binom{n-1}{r} = (r+1) \binom{n}{r+1}$
+
+d)  $\binom{n}{r} = \binom{n-1}{r} + \binom{n-1}{r-1}$
+
+## Solución c:
+
+$\text{tenemos que: }\binom{n-1}{r} = \frac{(n-1)!}{r!(n-1-r)!}$
+
+$=n \cdot \binom{n-1}{r} = \frac{n \cdot (n-1)!}{r!(n-1-r)!} = \frac{n!}{r!(n-r-1)!}$
+
+$\text{despejando el otro factor de la igualdad }(r+1) \binom{n}{r+1}= (r+1) \frac{n!}{(r+1)!(n-r-1)!}  =  \frac{ (r+1) n!}{(r+1) r!(n-r-1)!}$
+
+$\frac{n!}{r!\cdot(n-1-r)!} = \binom{n-1}{r}$
+
+$\therefore \text{Se demuestra la igualdad}$
+
+## Ejercicios:
+
+-   Considere un lote de 50 artículos de los cuales 5 son defectuosos, si se extraen 4 artículos al azar y sin sustitución.
+
+a)  ¿Cuál es la probabilidad de que exactamente 2 sean defectuosos?\
+b)  ¿Cuál es la probabilidad de que al menos 2 sean defectuosos?
+
+-   En una empresa de 100 empleados se seleccionan 2 personas al azar para asistir a una convención. ¿Cuál es la probabilidad de que el empleado con más años en la empresa sea elegido?
+
+-   Desea alinear 8 bolas negras y 2 rojas.
+
+a)  ¿Cuál es la probabilidad de que las rojas queden juntas?\
+b)  ¿Cuál es la probabilidad de que las bolas rojas ocupen los extremos?
+
+-   De 6 números positivos y 8 negativos se eligen cuatro sin sustitución y se multiplican.
+
+a)  ¿Cuál es la probabilidad de que el producto sea positivo?\
+b)  Si se seleccionan los números pero con sustitución ¿cuál es la probabilidad de que el producto sea positivo?
+
+## Ejercicios:
+
+-   \*Juan apuesta con Marta en el siguiente juego: se lanza una moneda con dos caras, una marcada con “1” y la otra con “−1”. La moneda se lanzará 6 veces y Juan ganará si la suma de los valores obtenidos es igual a cero. ¿Cuál es la probabilidad de que Juan gane?
+
+<!-- -->
+
+-   \*Suponga que se seleccionan 20 personas al azar y se registra sus fechas de cumpleaños. Si se supone que solo hay 365 días en el año (no se cuentan los bisiestos), encuentre el número de puntos muestrales para este experimento, ¿cuál es la probabilidad de que al menos dos personas cumplan el mismo día?

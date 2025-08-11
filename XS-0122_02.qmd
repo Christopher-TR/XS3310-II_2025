@@ -1,0 +1,317 @@
+---
+title: "Métodos de Conteo^2^"
+subtitle: " [XS-0122 Modelos Probabilísticos II Semestre 2025](https://christopher-tr.github.io/XS3310-I25)"
+format: clean-revealjs
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+
+
+author:
+  - name: Christopher Torres Rojas
+    url: https://christopher-tr.github.io/
+    email: christopher.torres@ucr.ac.cr
+    affiliations: 
+    - name: Escuela de Estadística, Universidad de Costa Rica
+      url: https://www.estadistica.ucr.ac.cr/
+#date: last-modified
+lang: es  # español
+---
+
+## Consecuencia de la definición clásica:
+
+$$
+P(A) = \frac{\text{Casos Favorables}}{\text{Casos Totales}} = \frac{\text{Cardinalidad de A}}{\text{Cardinalidad de }\Omega} = \frac{n(A)}{n}
+$$
+
+1.  $0 \leq P(A) \leq 1$
+
+2.  $P(A \cup B)= P(A)+P(B) - P(A\cap B)$
+
+3.  $P(A^c)=1-P(A)$
+
+4.  $P(\emptyset)=0$
+
+5.  $P(\Omega)=1$
+
+Primero abarcaremos métodos de conteo, para hallar la cardinalidad de los conjunto de interés como del espacio muestral.
+
+## Métodos de Conteo
+
+### Principio de la suma:
+
+::: {#thm-principio-suma .theorem}
+**Teorema (Principio de la suma)**
+
+Sean $A_1, A_2, \dots, A_k$ conjuntos finitos disjuntos dos a dos, es decir, $A_i \cap A_j = \emptyset$, con $i\ne j$ entonces:
+
+$$
+ \left| A_1 \cup A_2 \cup \cdots \cup A_k \right| = \left| A_1 \right| + \left| A_2 \right| + \cdots + \left| A_k \right| 
+$$
+:::
+
+**Ejemplo:**
+
+Carlos desea llegar a la Universidad desde su casa. Para ello, puede optar por dos líneas de autobús, tomar el tren o esperar a su amigo para que lo lleve gratis. Si se elige un medio de transporte al azar, ¿de cuántas maneras deberá pagar por el viaje?
+
+$B=\{Bus_1, Bus_2\}, \quad T= \{Tren_1\} \quad A=\{Amigo_1\}$
+
+$\left| Pagar \right|= \left|B\cup T\right| = \left|B\right|+\left|T\right| = 2+1=3$
+
+## Métodos de Conteo
+
+### Principio del producto:
+
+::: theorem
+**Teorema (Principio del producto)**
+
+Sean $A_1, A_2, \dots, A_k$ conjuntos finitos entonces:
+
+$$  \left| A_1 \times A_2 \times \cdots \times A_k \right| = \left| A_1 \right| \cdot \left| A_2 \right| \cdot ... \cdot \left| A_k \right|  $$
+:::
+
+En general, si hay $n_1$ formas de hacer posibles de realizar una tarea A y $n_2$ formas posibles de realizar una tarea B, donde ambas se realizan en secuencia, entonces hay $n_1\cdot n_2$ formas posibles de realizar ambas tareas en orden.
+
+**Ejemplo:** Continuando con el ejemplo anterior. Ahora suponga que Carlos desea ir a la Universidad (en bus) y luego regresar a casa por cualquiera de los medios de transporte. ¿De cuántas formas puede hacer su trayecto del día?
+
+$\left| Trayecto \right|= \left|B\times S\right| = \left|B\right|\times \left|S\right| = 2\cdot4=8$
+
+## Ejercicio
+
+Suponga que en una clase hay siete personas, cuatro son mujeres y 3 hombres. Si se tiene que escoger a un grupo de 3 personas.
+
+1.  ¿De cuántas formas pueden formarse el grupo si no hay restricciones?
+
+    $$
+    7\cdot6\cdot5 = 210
+    $$
+
+2.  Si la primera persona tiene que ser mujer. ¿De cuántas formas puede formarse el grupo?
+
+    $$
+    \text{Ejercicio}
+    $$
+
+3.  Si solo una persona del grupo tiene que ser mujer. ¿De cuántas formas puede formarse el grupo?
+
+    $$
+    (4_{m}\cdot3_{h}\cdot2_{h}) + (3_{h}\cdot4_m\cdot2_h)+ (3_{h}\cdot2_h\cdot4_m) = 72
+    $$
+
+4.  Si al menos una persona del grupo tiene que ser mujer. ¿De cuántas formas puede formarse el grupo?
+
+$$
+\text{Ejercicio}
+$$
+
+## Métodos de Conteo
+
+### Muestra [Ordenada]{.underline} con [Reemplazo]{.underline}:
+
+Sea una población de ***N*** elementos. Una muestra ordenada con reemplazo de tamaño n de esa población es todo arreglo de **n** elementos de la población en el que cualquier elemento puede aparecer más de una vez.
+
+::: theorem
+***Entonces el total de muestras ordenadas con reemplazo de tamaño n de una población N elementos es*** $N^n$
+
+La prueba es trivial usando el principio multiplicativo.
+:::
+
+**Ejemplo:** Suponga que se extrae una bola tres veces (con reemplazo) de una “bolsa” que contiene bolas de los colores **{rojo, azul, verde, amarillo}.**
+
+Si no interesa el orden la muestra **{rojo, azul, azul}** es diferente de **{azul, azul, rojo}** aunque las bolas extraídas hayan sido las mismas.
+
+Entonces tenemos $5\cdot5\cdot5 = 5^3 = 125$ muestras distintas posibles.
+
+## Métodos de Conteo
+
+### Permutación:
+
+::: theorem
+***Un arreglo ordenado de r objetos distintos se denomina permutación. El número de formas de ordenar n objetos distintos tomados r a la vez estará designado por el símbolo*** ${}_nP_r$.
+
+$$
+nPr = \frac{n!}{(n-r)!} \quad r \leq n
+$$
+
+$\text{donde } n! = n\cdot(n-1)....(2)\cdot(1)\quad \text{y   } 0!=1$
+
+***Prueba:***
+
+Estamos seleccionando r posiciones con n objetos, sin reemplazo. Tenemos que la primera posición tiene n posibilidades, la segunda (n-1) y así sucesivamente hasta la posición r. Es decir:
+
+$=n\cdot (n-1)\cdot (n-2) \cdots (n-r+1)$
+
+$=n\cdot (n-1)\cdot (n-2) \cdots (n-r+1) \cdot \frac{(n-r)!}{(n-r)!} = \frac{n!}{(n-r)!} = nPr$
+:::
+
+## Ejercicio
+
+1.  Cuántas palabras de 5 letras distintas se pueden formar con las letras de la palabra AZUL.
+
+2.  Cuántas palabras de 4 letras distintas se puede formar con las letras de la palabra AZUL.
+
+3.  Cuántas palabras de 5 letras distintas se pueden formar con las letras de la palabra AZUL si se tiene la restricción que las vocales van al inicio.
+
+4.  Cuántas palabras de 4 letras distintas se pueden formar con las letras de la palabra AZUL si se tiene la restricción que las vocales van al inicio ***(Note que podemos tener palabras con 1 o dos vocales)***.
+
+5.  Cuántas palabras de 5 letras distintas se pueden formar con las letras de la palabra AZUL si se tiene la restricción que las vocales van juntas.
+
+6.  ¿Cuántos números telefónicos diferentes de siete dígitos se pueden formar si el primer dígito no puede ser cero?
+
+## Métodos de Conteo
+
+### Permutación por clase "Permutaciones de n objetos [con elementos repetidos]{.underline}":
+
+::: theorem
+***El número de formas de dividir n objetos distintos en k grupos distintos que contienen*** $n_1$, $n_2$, ***… ,***$n_k$ ***objetos, respectivamente, donde cada objeto aparece en exactamente un grupo y*** $\sum_{i=1}^{k}n_i = n$***, es:***
+
+$$
+\binom{n}{n_1\ n_2\ \cdots\ n_k} = \frac{n!}{n_1! \, n_2! \cdots n_k!}
+$$
+:::
+
+**Ejemplo: ¿Cuántas palabras distintas de 3 letras podemos formar con la palabra ALA?**
+
+Si usaramos una permutación corriente diríamos que $3! = 6$ veamos si esto es cierto:
+
+$A_1LA_2 - A_1A_2L - LA_1A_2\quad -\quad A_2LA_1 - A_2A_1L - LA_2A_1$
+
+Note que en realidad son 3, pues las "A" al estar repetidas forman las mismas palabras.
+
+$\frac{3!}{2!\cdot 1!}= \frac{3}{2\cdot1}=3$
+
+## Métodos de Conteo
+
+### Permutación por clase "Permutaciones de n objetos [con elementos repetidos]{.underline}":
+
+**Prueba:**
+
+El número de arreglos distintos de los n objetos, suponiendo que todos los objetos sean distintos, es $nPr=n!$ . Entonces $nPr=n!$ es igual al número de formas de dividir los n objetos en k grupos (ignorando el orden dentro de los grupos) multiplicado por el número de formas de ordenar los $n_1$, $n_2$, …, $n_k$ elementos dentro de cada grupo. Esta aplicación del principio del producto da:
+
+$n! = X\cdot (n_1!\cdot n_2! \cdots n_k!)$
+
+$X = \frac{n!}{n_1!\cdot n_2! \cdots n_k!} =\binom{n}{n_1\ n_2\ \cdots\ n_k}$
+
+## Métodos de Conteo
+
+### Permutación por clase "Permutaciones de n objetos [con elementos repetidos]{.underline}":
+
+**Ejercicios:**
+
+Se tienen 9 bolas, donde 4 son azules, 3 rojas y 2 verdes.
+
+1.  De cuántas formas distintas se pueden ordenar las 9 bolas en una hilera.
+
+2.  De cuántas formas distintas pueden ordenarse las 9 bolas en una hilera si las azules deben estar al inicio.
+
+3.  De cuántas formas distintas pueden ordenarse las 9 bolas en una hilera si las rojas deben estar juntas.
+
+## Métodos de Conteo
+
+### Combinatoria:
+
+El número de combinaciones de n objetos tomados r a la vez es el número de subconjuntos, cada uno de tamaño r, que se pueden formar a partir de los n objetos. Este número estará denotado por $nCr$ o $\binom{n}{r}$
+
+***El número de subconjuntos [desordenados]{.underline} de tamaño r escogidos ([sin reemplazo]{.underline}) de n objetos disponibles es:***
+
+$$
+\binom{n}{r} = \frac{nPr}{r!} = \frac{n!}{r!(n-r)!}
+$$
+
+Prueba: Esta seleccción es esquivalente a dividir los n objetos en $k=2$ grupos los $n_1 = r$, objetos seleccionados y los $n_2=(n-r)$ restantes. Por ende:
+
+$$
+\binom{n}{r} =\binom{n}{r\quad n-r} = \frac{n!}{r!(n-r)!}
+$$
+
+## Métodos de Conteo
+
+### **Ejemplo:**
+
+Suponga que hay 5 amigos {Ana, Juan, Carlos, Vale, Mei} en un parque y desean sentarse en una banca, pero solo hay espacio para 3 de ellos. Si el orden en que se sientan no importa **¿de cuántas maneras pueden elegir a los amigos que se sentarán?**
+
+Note que como el orden no importa la combinación:\
+$\{Ana, Juan, Carlos\}\quad \text{es igual a:} \quad \{Ana,Carlos, Juan\}$
+
+Las combinaciones posibles son:
+
+$$
+\begin{bmatrix}\{ \text{Ana}, \text{Juan}, \text{Carlos} \} & \{ \text{Ana}, \text{Juan}, \text{Vale} \} \\\{ \text{Ana}, \text{Juan}, \text{Mei} \} & \{ \text{Ana}, \text{Carlos}, \text{Vale} \} \\\{ \text{Ana}, \text{Carlos}, \text{Mei} \} & \{ \text{Ana}, \text{Vale}, \text{Mei} \} \\\{ \text{Juan}, \text{Carlos}, \text{Vale} \} & \{ \text{Juan}, \text{Carlos}, \text{Mei} \} \\\{ \text{Juan}, \text{Vale}, \text{Mei} \} & \{ \text{Carlos}, \text{Vale}, \text{Mei} \}\end{bmatrix}
+$$
+
+$\binom{5}{3} = \frac{5!}{3!(5-3)!} = \frac{5!}{3!2!} = 10$
+
+## Métodos de Conteo
+
+### Combinatoria:
+
+**Ejemplo:**
+
+-   6 equipos de fútbol van a jugar un torneo:
+
+1.  ¿De cuántas maneras se pueden asignar el primer partido?
+
+2.  Si se juegan 3 partidos en la primera ronda. ¿En cuántas formas pueden ser asignados los equipos a los juegos?
+
+-   Si 2n equipos van a ser asignados a los juegos 1, 2, … , n, ¿en cuántas formas pueden ser asignados los equipos a los juegos?
+
+-   Se reparten cinco cartas de una baraja de 52 cartas. ¿Cuál es la probabilidad de sacar 3 ases y 2 reyes?
+
+## Métodos de Conteo
+
+### Combinaciones con repetición en los elementos:
+
+***El número de subconjuntos [desordenados]{.underline} de tamaño r escogidos (con [reemplazo]{.underline}) de n objetos disponibles es:***
+
+$$ CR_{n,r} = \binom{n+r-1}{r} = \frac{(n+r-1)!}{r!(n-1)!} $$
+
+**Ejemplo:**
+
+En una se cuenta con 8 diferentes sabores de helado.
+
+¿Cuántos conos de 3 bolitas de sabores se pueden hacer (Si los sabores se pueden repetir)?
+
+Note que es razonable pensar que el orden no importa, un helado de $\{chocolate, fresa, chocolate\} = \{chocolate, chocolate, fresa\}$ para el cliente.
+
+$$ CR_{8,3} = \binom{8+3-1}{3} = \frac{(8+3-1)!}{3!(8-1)!} = \frac{10!}{3!\cdot7!} = 120  $$
+
+## Resumen
+
+| Ordenamientos | Con Reemplazo | Sin Reemplazo |
+|:----------------------:|:----------------------:|:----------------------:|
+| **Con orden** | $$        
+                        n^r        
+                        $$ | $$              
+                                      nPr = \frac{n!}{(n-r)!}  
+                                                  $$ |
+| **Sin Orden** | $$        
+                  \binom{n+r-1}{r} 
+                        $$ | $$              
+                                     nCr = \frac{n!}{r!(n-r)!} 
+                                                  $$ |
+
+**Permutaciones con elementos repetidos:** $\binom{n}{n_1\ n_2\ \cdots\ n_k} = \frac{n!}{n_1! \, n_2! \cdots n_k!}$
+
+## Ejercicios:
+
+-   ¿Cuántas permutaciones pueden formarse con las letras de la palabra ESPERANZA?, ¿cuántas empiezan con A y terminan con A?
+
+-   Las cifras que componen un número son 1, 2, 3, 4 y 5 ¿Cuántos números diferentes de cinco cifras, menores de 54 000, pueden formarse sin que se repita ninguna de las cifras?
+
+-   Si tenemos 12 libros en un estante, ¿de cuántas maneras puede hacerse una selección de cinco libros cuando se tiene que incluir un libro determinado?, ¿y si se debe excluir un determinado libro?
+
+-   Un ingeniero debe ajustar el tiempo de cambio de luz en una serie de 10 semáforos. En un momento dado el semáforo puede estar con las luces en rojo, amarillo o verde encendidas. ¿Cuántas variantes de colores de la serie de semáforos son posibles en un principio? Si las luces se encienden aleatoriamente al inicio, ¿cuál es la probabilidad de que inicialmente se tengan tres semáforos con luz roja, cinco con amarilla y dos con verde? **R/4.27%**
+
+-   De un grupo de 12 estudiantes se necesita escoger tres para formar el comité cívico escolar. ¿De cuántas formas diferentes se pueden escoger a los tres estudiantes? Si el comité debe elegir presidente, secretario y vocal, ¿de cuántas formas diferentes se puede hacer la elección?
+
+## Ejercicios:
+
+-   Una estudiante se prepara para un examen estudiando una lista de diez problemas. Ella puede resolver seis de ellos. Para el examen, el profesor selecciona cinco problemas al azar de los diez de la lista dada a los estudiantes. ¿Cuál es la probabilidad de que la estudiante pueda resolver los cinco problemas del examen?
+
+-   Cuatro libros distintos de matemáticas, seis diferentes de física y dos diferentes de química se colocan en un estante Si se tienen las siguientes condiciones, ¿de cuántas formas distintas es posible ordenarlos para cada caso? a) Los libros de cada asignatura deben estar todos juntos. b) Solamente los libros de matemáticas deben estar juntos.
+
+-   Un Bus sale con 20 pasajeros de la terminal y no recoge a ninguno durante el trayecto. Además, se hacen 4 paradas antes de llegar a Playas del Coco. Si suponemos que la probabilidad de que cualquier pasajero se baje en una parada es independiente (es decir no viajan familiares ni amigos cercanos) y que la probabilidad de que se baje en cualquier destino es la misma. Entonces:
+
+    • ¿Cuál es la probabilidad de que todos los pasajeros se bajen en Playas del Coco?
+
+    • ¿Cuál es la probabilidad de que mínimo 19 pasajeros se bajen en Playas del Coco?
