@@ -13,7 +13,7 @@ herramientas de estadística contemporánea para sus aplicaciones en
 diversas áreas.
 
 [Carta al
-estudiante](https://christopher-tr.github.io/XS3310-I25/XS3310%20carta%20al%20estudiante.pdf)
+estudiante](https://christopher-tr.github.io/XS3310-II_2025/XS3310%20carta%20al%20estudiante.pdf)
 
 <a href="https://docs.google.com/spreadsheets/d/1YdJS7HFTSk2f_rsL2aRR1exSYTCzstMIzJ9trL34n6I/edit?gid=0#gid=0">Cronograma
 y ejercicios</a>
