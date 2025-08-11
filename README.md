@@ -13,9 +13,9 @@ herramientas de estadística contemporánea para sus aplicaciones en
 diversas áreas.
 
 [Carta al
-estudiante](https://shuwei325.github.io/XS3310-I25/XS3310%20carta%20al%20estudiante.pdf)
+estudiante](https://christopher-tr.github.io/XS3310-I25/XS3310%20carta%20al%20estudiante.pdf)
 
-<a href="https://docs.google.com/spreadsheets/d/1T9SkgJyYtw0ESV2LRFzKDK4R_05WdWr4HFyjJw1nj7I/edit?usp=sharing">Cronograma
+<a href="https://docs.google.com/spreadsheets/d/1T9SkgJyYtw0ESV2LRFzKDK4R_05WdWr4HFyjJw1nj7I/edit?gid=483857151#gid=483857151">Cronograma
 y ejercicios</a>
 
 ## Presentaciones
